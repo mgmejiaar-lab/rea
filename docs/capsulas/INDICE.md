@@ -6,15 +6,15 @@
 
 ## Abiertas
 
-| Cápsula                                           | Estado                   | Pendiente |
-| ------------------------------------------------- | ------------------------ | --------- |
-| [Prueba](cd9090fc-141e-42c6-95b6-f62d3f1f7ad8.md) | Abierta ⚠️ sin completar | —         |
-
-## Cerradas o continuadas
-
 | Cápsula   | Estado | Pendiente |
 | --------- | ------ | --------- |
 | (ninguna) |        |           |
+
+## Cerradas o continuadas
+
+| Cápsula                                           | Estado                  | Pendiente                                                                                                                                    |
+| ------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Prueba](cd9090fc-141e-42c6-95b6-f62d3f1f7ad8.md) | Continuada en otro chat | 1. **Primer paso del chat nuevo**: confirmar si esta sesión nueva ya tiene las herramientas `mcp__rea__*` cargadas (buscar con ToolSearch al |
 
 ## Sin conversación viva (revisar a mano)
 
@@ -31,4 +31,4 @@ Cápsulas cuyo archivo sigue exactamente como la plantilla vacía (Avances/Pendi
 paso sin tocar) aunque ya tuvieron trabajo: no se pudieron completar solas de forma fiable.
 Revisar a mano con `docs/capsulas/<id>.md` y la conversación real antes de confiar en ellas.
 
-- [Prueba](cd9090fc-141e-42c6-95b6-f62d3f1f7ad8.md) (Abierta)
+(ninguna)
