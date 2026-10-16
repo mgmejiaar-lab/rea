@@ -1,97 +1,100 @@
-# Wispr Flow: componentes y base para construir una versión propia
+# Wispr Flow: componentes e integración comprobada
 
-**Estado: aún no hay una aplicación propia ejecutable.** Este documento entrega el desglose comprobado del cliente y una propuesta de construcción. La ingeniería inversa sigue siendo parcial.
+**Todavía no hay conexión entre el dictado de Wispr y una aplicación propia. Sí se ejecutó un componente original y pasó ocho comprobaciones locales.**
 
-Analizado: Wispr Flow 1.6.1167 instalado en el Mac. Fecha: 16 de octubre de 2026.
+Analizado: Wispr Flow 1.6.1167 instalado en este Mac. Fecha: 16 de octubre de 2026.
 
-## Qué resultado buscamos
+## Objetivo vigente
 
-Convertir el estudio de Wispr en una aplicación propia que permita hablar y obtener texto en otra aplicación. El usuario ya proporcionó el objetivo y el programa instalado. No necesita ejecutar comandos ni demostrar que su Wispr funciona.
+Probar la ingeniería inversa con REA y encontrar componentes o interfaces para integrar Wispr en las aplicaciones del usuario, manteniendo su suscripción. La propuesta anterior de construir un sustituto queda retirada: no es lo que el usuario busca.
 
-REA es la herramienta de análisis. La aplicación equivalente requiere un desarrollo posterior. No se ha demostrado que podamos reproducir exactamente la apariencia, calidad, velocidad o todas las funciones de Wispr.
+REA permitió estudiar partes del programa distribuido. En esta investigación no produjo una ingeniería inversa perfecta ni recuperó el proyecto original o el código de los servidores. Hubo análisis parcial y lectura manual del JavaScript empaquetado.
 
-## Qué obtuvimos de la aplicación
+## Prueba que ya se ejecutó
 
-Se pudo leer su código JavaScript empaquetado, identificar módulos y estudiar funciones concretas. Las copias conservan su procedencia y sus huellas. Es código distribuido con la aplicación, con nombres parcialmente minificados; no se ha recuperado el proyecto original de desarrollo.
+Se extrajo de la instalación original `.webpack/main/agentToolBridge.js`, se verificó su huella y se ejecutaron sus bytes sin cambios con Node. Se utilizó un archivo temporal con extensión `.cjs` para conservar el modo CommonJS del componente.
 
-El mapa siguiente resume rutas presentes en el código. No es una captura de una sesión real y omite rutas alternativas:
+El puente recibe mensajes JSON-RPC por la entrada estándar y convierte llamadas MCP a herramientas en mensajes de un socket local. La prueba creó ese socket y dos herramientas ficticias: una devuelve texto y otra devuelve un error deliberado. No se conectó al proceso de Wispr ni a su servicio remoto.
 
 ```mermaid
 flowchart LR
-    A[Micrófono en el Mac] --> B[Captura y fragmentos de audio]
-    B --> C[Coordinador del dictado]
-    D[Preferencias y contexto disponible] --> C
-    C --> E[Solicitudes al servicio remoto]
-    E --> F[Texto reconocido y formateado]
-    F --> G[Orden al componente auxiliar]
-    G --> H[Inserción en la aplicación de destino]
+    A[Cliente de prueba propio] -->|JSON-RPC por entrada estándar| B[Puente original de Wispr]
+    B -->|Mensajes por socket local| C[Servicio ficticio de herramientas]
+    C -->|Resultado o error| B
+    B -->|Respuesta MCP| A
 ```
 
-## Componentes identificados
+| Comprobación ejecutada                                    | Resultado                                      |
+| --------------------------------------------------------- | ---------------------------------------------- |
+| Inicialización e identificación del servidor              | Pasó                                           |
+| Consulta del catálogo de herramientas                     | Pasó                                           |
+| Comprobación de comunicación con ping                     | Pasó                                           |
+| Llamada con texto en español y conservación de argumentos | Pasó                                           |
+| Dos llamadas simultáneas, contestadas en orden inverso    | Cada respuesta llegó a su solicitud; pasó      |
+| Error de herramienta y argumentos omitidos                | Error explícito y objeto vacío; pasó           |
+| Método desconocido                                        | Rechazo JSON-RPC esperado; pasó                |
+| Cierre de entrada y terminación del proceso               | Salida 0, sin señal ni errores en stderr; pasó |
 
-La columna de reconstrucción describe trabajo propuesto, no componentes nuevos ya implementados.
+**Qué demuestra:** se recuperó y ejercitó un componente real, y conocemos el protocolo de los casos probados. El script de verificación es código propio; el puente ejecutado procede de Wispr.
 
-| Componente                               | Comprobado en el cliente de Wispr                                                                                                                                                                          | Trabajo para una aplicación propia                                                                                                                        | Evidencia |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| Captura del micrófono                    | Usa `getUserMedia`, un procesador `AudioWorklet` y mensajes de inicio, fragmentos y finalización. Hay rutas para WAV y Opus.                                                                               | Implementar un grabador con selección de micrófono, inicio, parada y cancelación.                                                                         | F1        |
-| Coordinación del dictado                 | Asocia paquetes y respuestas a una sesión; contempla finalización, errores y rutas alternativas.                                                                                                           | Implementar sesiones que eviten mezclar audio o texto de dictados distintos.                                                                              | F2        |
-| Comunicación con el procesamiento de voz | Hay transporte gRPC y rutas HTTP alternativas. La ruta activa en la sesión del usuario no se verificó.                                                                                                     | Conectar un motor de transcripción propio o elegido para la nueva app. No se ha seleccionado ni contratado uno.                                           | F2, F3    |
-| Contexto                                 | Los serializadores contemplan aplicación activa, idiomas, diccionario y texto circundante. El texto del campo depende, entre otras condiciones, de la preferencia `useAxContext` y de que pueda obtenerse. | Definir qué contexto necesita la versión propia, cuándo se recoge y a qué procesamiento se entrega.                                                       | F3        |
-| Transcripción y formato                  | El cliente solicita pasos de transcripción y alineación; añade formato o cambios de capitalización según condiciones. Distingue texto reconocido, texto formateado y texto para pegar.                     | Implementar o integrar reconocimiento y formato con contratos separados. Las instrucciones y modelos internos del servidor de Wispr no se han recuperado. | F3, F4    |
-| Inserción del resultado                  | El cliente conserva el texto actual del portapapeles y manda una orden `PasteText`, con texto y HTML opcional, a su componente auxiliar.                                                                   | Implementar una integración propia con macOS y verificar inserción, foco y permisos. El interior del auxiliar de Wispr no se ha descompilado.             | F5        |
-| Ventanas y controles                     | El inventario contiene entradas de interfaz llamadas `hub`, `status`, `overlay` y otras.                                                                                                                   | Estudiar las pantallas pertinentes y diseñar los controles de la aplicación propia. La coincidencia visual aún no está analizada.                         | F6        |
+**Qué no demuestra:** no verifica transcripción, calidad del dictado, acceso de la cuenta, carga de extensiones en Wispr ni integración con una aplicación del usuario. Estas ocho comprobaciones no son una certificación completa de MCP. El puente expone herramientas: no es, por sí solo, un motor de voz ni una API pública de transcripción.
 
-## Qué podemos concluir y qué no
+Script repetible: [verify-bridge.mjs](../experiments/wispr-integration/verify-bridge.mjs). Instrucciones y límites: [README del experimento](../experiments/wispr-integration/README.md). Evidencia de la ejecución: [resultado local](../.cache/wispr-integration/verification-1792190379265.json).
 
-**Observado:** el cliente prepara solicitudes de audio y contexto, procesa respuestas remotas y coordina su inserción. Esto permite reconstruir responsabilidades e interfaces entre componentes.
+## Vías de integración encontradas
 
-**Inferencia de implementación:** se puede usar ese desglose como base para desarrollar una alternativa. Para que funcione por cuenta propia habrá que proporcionar el procesamiento de voz/texto y la integración con macOS. Esa alternativa todavía no se ha implementado ni validado.
+| Vía                                     | Evidencia y utilidad                                                                                                                                                               | Estado                                                                            |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Puente local de herramientas MCP        | Traduce `tools/call` a una llamada de herramienta por socket y devuelve su resultado. Permite estudiar cómo conectar herramientas mediante ese protocolo.                          | Componente real probado con servicio ficticio; no conectado a Wispr en ejecución. |
+| Extensiones internas y rutas de dictado | El cliente contiene `registerDictationRoute` y un callback que entrega texto reconocido, texto formateado y contexto. Es una vía candidata para recibir dictados en código propio. | Lectura estática; activación, acceso y estabilidad del contrato sin verificar.    |
+| MCP remoto documentado por Wispr        | Acceso de lectura a reuniones, transcripciones de reuniones y notas. No da acceso al historial de dictados.                                                                        | Documentación pública verificada; ninguna cuenta conectada.                       |
 
-**Desconocido:** modelos y parámetros del servidor, instrucciones internas de formato, rutas activas de la cuenta, funcionamiento interno del auxiliar nativo y equivalencia de resultados. Un método denominado `_runOpenAIFallback` no demuestra qué modelo se usa realmente.
+La vía remota requiere los accesos de Notetaker y MCP y autorización de la cuenta; esa autorización incluye contenido existente y no se concede por reunión. No se realizó esa conexión. [Documentación oficial de Wispr](https://docs.wisprflow.ai/articles/9551372685-connect-an-mcp-client-to-wispr-flow-remote-mcp-server).
 
-No se han hecho llamadas de dictado al servicio de Wispr durante este análisis. No se ha verificado un cargo adicional o descuento de cuota por la prueba que se había propuesto.
+### Contrato interno de dictado observado
 
-## Primera versión propuesta
+La lectura del módulo principal 84797 y de `extensionBootstrap.js` muestra:
 
-Objetivo verificable: iniciar un dictado, capturar voz, obtener texto y colocarlo en el campo elegido de otra aplicación del Mac.
+- Una extensión registra una ruta mediante `registerDictationRoute(options, callbacks)`.
+- El callback `onDictationCompleted` recibe `{ asrText, formattedText, context }`.
+- Una respuesta con `action: "paste"` y `text` solicita la ruta de pegado; el manejador principal traduce otras acciones a la salida de la ruta. No se probó el efecto en ejecución.
+- `onDictationEnd` es una notificación de finalización: el mensaje observado no incluye la transcripción. Usarlo como si entregara texto sería incorrecto.
+- La aplicación empaquetada busca rutas de extensiones configuradas en un archivo `custom-paths.json`. Además mantiene un estado de habilitación por extensión; cuando falta una entrada, la considera deshabilitada. Las extensiones marcadas como vinculadas a cuenta tienen comprobaciones adicionales.
 
-Los módulos siguientes son nombres propuestos para organizar el desarrollo:
+No se leyeron ni cambiaron los archivos de configuración de la cuenta. No se instaló ni habilitó una extensión. En las búsquedas realizadas no se encontró un contrato público de SDK para estas extensiones; no se presentan como una API oficialmente soportada.
 
-| Módulo propio         | Entrada                                       | Resultado esperado                                             |
-| --------------------- | --------------------------------------------- | -------------------------------------------------------------- |
-| Grabador              | Inicio, micrófono seleccionado y finalización | Audio asociado a un identificador de dictado                   |
-| Coordinador           | Acciones y eventos de ese dictado             | Estado de captura, procesamiento, entrega o error              |
-| Transcriptor          | Audio e idioma solicitado                     | Texto reconocido o error explícito                             |
-| Formateador           | Texto reconocido y preferencias autorizadas   | Texto final, conservando el original para comparación          |
-| Integración con macOS | Texto final y destino seleccionado            | Confirmación de inserción o explicación del fallo              |
-| Interfaz              | Estado y acciones disponibles                 | Controles para iniciar, parar, cancelar y revisar el resultado |
+## Otros componentes identificados en el cliente
 
-La elección del motor de transcripción y formato queda pendiente. No hay credenciales verificadas ni autorización general para contratar servicios o efectuar llamadas pagadas. No se requieren esas decisiones para continuar estudiando el cliente.
+Estas son observaciones del código, no funciones verificadas mediante un dictado real:
 
-## Orden concreto del trabajo restante
+| Componente              | Lo observado                                                                                   | Fuente local          |
+| ----------------------- | ---------------------------------------------------------------------------------------------- | --------------------- |
+| Micrófono               | `getUserMedia`, `AudioWorklet`, fragmentos de audio y fin de grabación                         | Hub 76756, clase `rb` |
+| Coordinación            | Sesiones, paquetes de audio y finalización                                                     | Main 64472            |
+| Transporte              | gRPC y rutas HTTP alternativas                                                                 | Main 21237 y 99593    |
+| Contexto                | Idiomas, diccionario, aplicación y texto circundante según preferencias y disponibilidad       | Main 99593            |
+| Transcripción y formato | Solicitudes de pasos de procesamiento; respuesta con texto reconocido, formateado y para pegar | Main 99593 y 21237    |
+| Inserción               | Orden `PasteText` al auxiliar nativo                                                           | Main 26181            |
+| Interfaz                | Entradas distribuidas `hub`, `status` y `overlay`, entre otras                                 | Inventario ASAR       |
 
-1. Completar el estudio del formato y de la comunicación con el auxiliar nativo, siguiendo las fuentes ya localizadas. Usar observación en ejecución solo para una pregunta concreta que el código no resuelva.
-2. Preparar la aplicación propia separada del código de REA. El repositorio actual sigue siendo la herramienta de ingeniería inversa.
-3. Implementar grabación y coordinación; verificar que el audio y las cancelaciones se conservan correctamente.
-4. Conectar y validar el procesamiento de voz y formato, después de resolver motor, acceso y autorización de cualquier consumo pagado.
-5. Implementar la inserción en macOS y verificar el recorrido completo de la nueva aplicación.
+El nombre `_runOpenAIFallback` no identifica el modelo usado realmente. No se recuperaron los modelos, instrucciones privadas o código del servicio remoto. El interior del auxiliar nativo no se ha descompilado.
 
-Las pruebas finales propuestas corresponden a la aplicación propia: dictado breve, cancelación sin pegado, micrófono no disponible, fallo del procesamiento y cambio de foco entre aplicaciones. Aún no se han ejecutado. No se necesita repetir una prueba básica de que Wispr original dicta para continuar el análisis.
+## Qué falta para una integración real
 
-## Fuentes y límites de verificación
+Para recibir dictados en una aplicación propia, la pista concreta es la ruta de extensiones. Falta comprobar el mecanismo de activación disponible en esta instalación y elegir la aplicación receptora, su dato de destino y un recorrido de prueba. Después habrá que verificar un dictado completo desde Wispr hasta ese destino. La prueba local del puente no sustituye esa comprobación.
 
-Las referencias son locales a este Mac. Las copias del programa y la evidencia bruta están en `.cache/`, excluidas de Git, y no viajan a la nube con el repositorio.
+El MCP remoto es otra opción si se quieren consultar reuniones y notas. Su alcance documentado no resuelve la entrega del dictado corriente a una aplicación propia.
 
-- **F1 — Captura:** módulo 76756 de `.webpack/renderer/hub/index.js`, clase `rb`. [Índice de métodos](../.cache/wispr-analysis/recorder-class-index.json), [llamadas de audio](../.cache/wispr-analysis/audio-call-sites.json) y [procedencia](../.cache/wispr-analysis/hub-module-76756-provenance.json).
-- **F2 — Coordinación y transporte:** módulos 64472 y 21237 de `.webpack/main/index.js`; `Qn`, `Wn`, `startGrpcStream` y `sendAudioPackets`. [Procedencia del coordinador](../.cache/wispr-analysis/module-64472-provenance.json) y [del transporte](../.cache/wispr-analysis/module-21237-provenance.json).
-- **F3 — Solicitud, contexto y selección de pasos:** módulo 99593; `serializeFlowRequest`, `sendFlowRequest`, `pipelineSteps` y `limitedTextboxContents`; módulo 21237, `getContext`. [Procedencia de solicitudes](../.cache/wispr-analysis/module-99593-provenance.json).
-- **F4 — Resultado remoto:** módulo 21237, `processResult`. [Procedencia](../.cache/wispr-analysis/module-21237-provenance.json).
-- **F5 — Inserción:** módulo 26181, exportación `pasteTextAndRelaunchHelperIfNeeded`, función `ae`. [Procedencia](../.cache/wispr-analysis/module-26181-provenance.json).
-- **F6 — Archivos distribuidos:** [inventario del paquete](../.cache/wispr-analysis/inventory.json).
-- **Registro de hallazgos:** [observaciones estáticas y límites](../.cache/wispr-analysis/dictation-findings.json).
+No se necesita desarrollar un reemplazo, seleccionar otro modelo de voz ni contratar un servicio para continuar investigando estas interfaces. No se han hecho llamadas pagadas durante la prueba local; no se ha verificado qué condiciones comerciales aplicarían a una integración futura.
 
-La huella SHA-256 del ASAR analizado es `84293f175ce0c4e0db7818b1f1ebfb2eb524a9315f8dfa74439925019e9fb587`; se volvió a comprobar antes de redactar este documento.
+## Evidencia y límites
 
-REA analizó los primeros tres archivos seleccionados y cuatro copias de módulos posteriores. La cobertura es parcial. El análisis del archivo principal completo agotó su límite de memoria; se conservó ese resultado como parcial. El análisis acotado posterior tuvo cero errores de sintaxis, pero límites de nodos y cero hallazgos automáticos de aplicación: las conclusiones funcionales de este documento proceden de la lectura del código y de su árbol de sintaxis, no de una ejecución observada.
-
-Persisten tres discrepancias entre las huellas declaradas por el paquete y componentes nativos que lo acompañan. La causa no se ha verificado. El intento de inspección de ventanas falló con `timeoutReached`. No se ha observado una sesión real de dictado ni se ha construido una réplica.
+- ASAR: SHA-256 `84293f175ce0c4e0db7818b1f1ebfb2eb524a9315f8dfa74439925019e9fb587`.
+- Puente ejecutado: SHA-256 `8a9e77a6310d960d5486ed138a591a8185d4cf443b391b3ce069a39364451a2b`.
+- El verificador rechaza ejecutar si cambia cualquiera de esas huellas. Es un experimento de esta versión, no un instalador genérico.
+- Procedencia de extensiones: [módulo 84797](../.cache/wispr-analysis/module-84797-provenance.json) y [bootstrap](../.cache/wispr-analysis/integration/extensionBootstrap.js.provenance.json).
+- [Inventario](../.cache/wispr-analysis/inventory.json), [hallazgos del dictado](../.cache/wispr-analysis/dictation-findings.json) y [resumen REA de módulos](../.cache/wispr-analysis/rea-dictation-summary.json).
+- REA analizó los primeros archivos seleccionados y cuatro copias de módulos. Su intento sobre el archivo principal completo agotó el límite de memoria. El análisis posterior tuvo cero errores de sintaxis, pero cobertura parcial y cero hallazgos automáticos de aplicación: las conclusiones funcionales se obtuvieron leyendo el código y su árbol de sintaxis.
+- Persisten tres discrepancias de integridad declarada en componentes nativos acompañantes; causa no verificada. Ninguno de esos componentes se ejecutó en esta prueba del puente.
+- Las copias del programa, la instalación aislada de REA y los resultados brutos están en `.cache/`, excluidos de Git. No viajan a la nube con el repositorio. No se distribuye código de Wispr como parte del experimento propio.
+- No se modificó Wispr, se capturó audio ni se accedió a datos de la cuenta. No hay una pantalla nueva en la vista previa: el entregable es este informe y el experimento ejecutable.
