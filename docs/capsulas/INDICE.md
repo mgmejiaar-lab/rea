@@ -6,24 +6,24 @@
 
 ## Abiertas
 
-| Cápsula   | Estado | Pendiente |
-| --------- | ------ | --------- |
-| (ninguna) |        |           |
+| Cápsula                                                          | Estado                   | Pendiente |
+| ---------------------------------------------------------------- | ------------------------ | --------- |
+| [Tratar de traer wispr](55f733dc-7dbe-41b7-b96c-0f413414d1f3.md) | Abierta ⚠️ sin completar | —         |
 
 ## Cerradas o continuadas
 
-| Cápsula                                           | Estado                  | Pendiente                                                                                                                                    |
-| ------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Prueba](cd9090fc-141e-42c6-95b6-f62d3f1f7ad8.md) | Continuada en otro chat | 1. **Primer paso del chat nuevo**: confirmar si esta sesión nueva ya tiene las herramientas `mcp__rea__*` cargadas (buscar con ToolSearch al |
+| Cápsula   | Estado | Pendiente |
+| --------- | ------ | --------- |
+| (ninguna) |        |           |
 
 ## Sin conversación viva (revisar a mano)
 
 Su conversación ya no existe (se cerró/borró) y el archivo no tiene "## Cierre": puede ser
 una tarea abandonada a medias, no necesariamente terminada.
 
-| Cápsula   | Pendiente |
-| --------- | --------- |
-| (ninguna) |           |
+| Cápsula                                           | Pendiente                                                                                                                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Prueba](cd9090fc-141e-42c6-95b6-f62d3f1f7ad8.md) | 1. ~~Confirmar que `mcp__rea__*` cargó en el chat nuevo~~ — **Resuelto 2026-10-15**: confirmado por el listado de herramientas de esta sesió |
 
 ## Memoria pendiente de completar
 
@@ -31,4 +31,4 @@ Cápsulas cuyo archivo sigue exactamente como la plantilla vacía (Avances/Pendi
 paso sin tocar) aunque ya tuvieron trabajo: no se pudieron completar solas de forma fiable.
 Revisar a mano con `docs/capsulas/<id>.md` y la conversación real antes de confiar en ellas.
 
-(ninguna)
+- [Tratar de traer wispr](55f733dc-7dbe-41b7-b96c-0f413414d1f3.md) (Abierta)
