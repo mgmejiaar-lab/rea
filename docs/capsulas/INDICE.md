@@ -10,6 +10,7 @@
 | ----------------------------------------------------------------- | ------------------------ | --------- |
 | [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) | Abierta ⚠️ sin completar | —         |
 | [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md)                | Abierta ⚠️ sin completar | —         |
+| [Lovable](75a4e713-9c73-459f-8eb8-393e112b028b.md)                | Abierta ⚠️ sin completar | —         |
 
 ## Cerradas o continuadas
 
@@ -34,3 +35,4 @@ Revisar a mano con `docs/capsulas/<id>.md` y la conversación real antes de conf
 
 - [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) (Abierta)
 - [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md) (Abierta)
+- [Lovable](75a4e713-9c73-459f-8eb8-393e112b028b.md) (Abierta)
