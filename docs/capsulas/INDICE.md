@@ -6,9 +6,10 @@
 
 ## Abiertas
 
-| Cápsula                                            | Estado                   | Pendiente |
-| -------------------------------------------------- | ------------------------ | --------- |
-| [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md) | Abierta ⚠️ sin completar | —         |
+| Cápsula                                                           | Estado                   | Pendiente |
+| ----------------------------------------------------------------- | ------------------------ | --------- |
+| [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) | Abierta ⚠️ sin completar | —         |
+| [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md)                | Abierta ⚠️ sin completar | —         |
 
 ## Cerradas o continuadas
 
@@ -31,4 +32,5 @@ Cápsulas cuyo archivo sigue exactamente como la plantilla vacía (Avances/Pendi
 paso sin tocar) aunque ya tuvieron trabajo: no se pudieron completar solas de forma fiable.
 Revisar a mano con `docs/capsulas/<id>.md` y la conversación real antes de confiar en ellas.
 
+- [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) (Abierta)
 - [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md) (Abierta)
