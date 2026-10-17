@@ -1,0 +1,4907 @@
+{
+  "revision": "834ffec1b539171390358e60a0406870108514f5",
+  "remote": "https://gitlab.com/mayan-edms/mayan-edms.git",
+  "version_scope": "master declares 4.12.2; no 4.12.2 remote tag observed",
+  "kind": "static AST and isolated source methods with simulated collaborators",
+  "not_tested": [
+    "Django ORM",
+    "HTTP API",
+    "browser",
+    "SQL concurrency",
+    "Celery",
+    "Tesseract",
+    "storage services"
+  ],
+  "files": [
+    {
+      "path": "mayan/__init__.py",
+      "sha256": "f31a109ab5ad2138991ab5ac3a7593f2ca436f9a3a25c734ae0471448da7a1e1",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/__init__.py",
+      "symbols": []
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "236e07d48e934ebd8546d59761281a779ccc984c39361fb89a3231fa3eae262d",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/LICENSE",
+      "symbols": []
+    },
+    {
+      "path": "mayan/apps/documents/models/document_models.py",
+      "sha256": "40b9e351caaa98ebe4059bcf32e8df4c28162661983b71c34995280639954311",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_models.py",
+      "symbols": [
+        {
+          "name": "Document",
+          "start": 26,
+          "end": 162
+        },
+        {
+          "name": "Document.__str__",
+          "start": 108,
+          "end": 109
+        },
+        {
+          "name": "Document.delete",
+          "start": 111,
+          "end": 134
+        },
+        {
+          "name": "Document.get_absolute_url",
+          "start": 136,
+          "end": 140
+        },
+        {
+          "name": "Document.natural_key",
+          "start": 142,
+          "end": 143
+        },
+        {
+          "name": "Document.save",
+          "start": 146,
+          "end": 162
+        },
+        {
+          "name": "DocumentSearchResult",
+          "start": 165,
+          "end": 167
+        },
+        {
+          "name": "RecentlyCreatedDocument",
+          "start": 170,
+          "end": 175
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_file_models.py",
+      "sha256": "1a75f18ee9c062ec4f5a763e880d47c9d6d089b80e84aafb02b7ac638f91b88a",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_file_models.py",
+      "symbols": [
+        {
+          "name": "upload_to",
+          "start": 24,
+          "end": 27
+        },
+        {
+          "name": "DocumentFile",
+          "start": 30,
+          "end": 171
+        },
+        {
+          "name": "DocumentFile.__str__",
+          "start": 113,
+          "end": 114
+        },
+        {
+          "name": "DocumentFile.delete",
+          "start": 121,
+          "end": 147
+        },
+        {
+          "name": "DocumentFile.get_absolute_url",
+          "start": 149,
+          "end": 153
+        },
+        {
+          "name": "DocumentFile.natural_key",
+          "start": 155,
+          "end": 158
+        },
+        {
+          "name": "DocumentFile.save",
+          "start": 161,
+          "end": 171
+        },
+        {
+          "name": "DocumentFileSearchResult",
+          "start": 174,
+          "end": 176
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_file_page_models.py",
+      "sha256": "d317aa3bbdebbe1b3fabee5b08233fe8e4248b67d24cbbf424056a05a683997d",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_file_page_models.py",
+      "symbols": [
+        {
+          "name": "DocumentFilePage",
+          "start": 18,
+          "end": 71
+        },
+        {
+          "name": "DocumentFilePage.__str__",
+          "start": 40,
+          "end": 41
+        },
+        {
+          "name": "DocumentFilePage.delete",
+          "start": 43,
+          "end": 59
+        },
+        {
+          "name": "DocumentFilePage.get_absolute_url",
+          "start": 61,
+          "end": 65
+        },
+        {
+          "name": "DocumentFilePage.natural_key",
+          "start": 67,
+          "end": 70
+        },
+        {
+          "name": "DocumentFilePageSearchResult",
+          "start": 74,
+          "end": 79
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_file_model_mixins.py",
+      "sha256": "84327f68595aeac60eb8110afc1d3db9344b14c1bc300475bc04e9e550421186",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_file_model_mixins.py",
+      "symbols": [
+        {
+          "name": "DocumentFileBusinessLogicMixin",
+          "start": 36,
+          "end": 452
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.hash_function",
+          "start": 38,
+          "end": 39
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.execute_pre_create_hooks",
+          "start": 42,
+          "end": 45
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.register_post_save_hook",
+          "start": 48,
+          "end": 51
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.register_pre_create_hook",
+          "start": 54,
+          "end": 57
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.register_pre_open_hook",
+          "start": 60,
+          "end": 63
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.register_pre_save_hook",
+          "start": 66,
+          "end": 69
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin._create",
+          "start": 77,
+          "end": 120
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin._introspect",
+          "start": 122,
+          "end": 153
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin._open",
+          "start": 155,
+          "end": 173
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin._save",
+          "start": 181,
+          "end": 208
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.cache",
+          "start": 211,
+          "end": 215
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.cache_partition",
+          "start": 218,
+          "end": 222
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.cache_partition_name",
+          "start": 225,
+          "end": 226
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.cache_partition_delete",
+          "start": 228,
+          "end": 232
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.checksum_update",
+          "start": 234,
+          "end": 258
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.execute_pre_save_hooks",
+          "start": 260,
+          "end": 267
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.exists",
+          "start": 269,
+          "end": 273
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_api_image_url",
+          "start": 275,
+          "end": 289
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_cache_partitions",
+          "start": 291,
+          "end": 296
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_document_file_latest",
+          "start": 298,
+          "end": 299
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_intermediate_file",
+          "start": 301,
+          "end": 305
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_label",
+          "start": 307,
+          "end": 308
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_page_count",
+          "start": 311,
+          "end": 318
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.get_size_display",
+          "start": 321,
+          "end": 322
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.is_in_trash",
+          "start": 327,
+          "end": 328
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.mimetype_update",
+          "start": 330,
+          "end": 345
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.page_count_update",
+          "start": 347,
+          "end": 400
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.pages",
+          "start": 403,
+          "end": 410
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.pages_first",
+          "start": 413,
+          "end": 414
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.save_to_file",
+          "start": 416,
+          "end": 418
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.size_update",
+          "start": 420,
+          "end": 429
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.upload_complete",
+          "start": 431,
+          "end": 438
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.uuid",
+          "start": 441,
+          "end": 442
+        },
+        {
+          "name": "DocumentFileBusinessLogicMixin.versions_new",
+          "start": 444,
+          "end": 448
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_version_models.py",
+      "sha256": "5d3e8feab548c257c8814752b269beaaf744cdfd0f8f052017f3c139c8926214",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_version_models.py",
+      "symbols": [
+        {
+          "name": "DocumentVersion",
+          "start": 23,
+          "end": 109
+        },
+        {
+          "name": "DocumentVersion.__str__",
+          "start": 57,
+          "end": 58
+        },
+        {
+          "name": "DocumentVersion.delete",
+          "start": 65,
+          "end": 71
+        },
+        {
+          "name": "DocumentVersion.get_absolute_url",
+          "start": 73,
+          "end": 77
+        },
+        {
+          "name": "DocumentVersion.save",
+          "start": 92,
+          "end": 109
+        },
+        {
+          "name": "DocumentVersionSearchResult",
+          "start": 112,
+          "end": 114
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_version_page_models.py",
+      "sha256": "d21a763e538180a916cabe0bee6501764764c7187f365cc7f69b3a67dcc374ff",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_version_page_models.py",
+      "symbols": [
+        {
+          "name": "DocumentVersionPage",
+          "start": 28,
+          "end": 97
+        },
+        {
+          "name": "DocumentVersionPage.__str__",
+          "start": 65,
+          "end": 66
+        },
+        {
+          "name": "DocumentVersionPage.delete",
+          "start": 73,
+          "end": 75
+        },
+        {
+          "name": "DocumentVersionPage.get_absolute_url",
+          "start": 77,
+          "end": 81
+        },
+        {
+          "name": "DocumentVersionPage.save",
+          "start": 96,
+          "end": 97
+        },
+        {
+          "name": "DocumentVersionPageSearchResult",
+          "start": 100,
+          "end": 104
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/models/document_version_model_mixins.py",
+      "sha256": "f7ebc37c58fbda505a4783dfad7e0933391c833f225b7254529d939404978f2f",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/models/document_version_model_mixins.py",
+      "symbols": [
+        {
+          "name": "DocumentVersionBusinessLogicMixin",
+          "start": 34,
+          "end": 338
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.annotate_content_object_list",
+          "start": 36,
+          "end": 50
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.active_set",
+          "start": 52,
+          "end": 68
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.active_unset",
+          "start": 70,
+          "end": 86
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.cache",
+          "start": 89,
+          "end": 94
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.cache_partition",
+          "start": 97,
+          "end": 101
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.cache_partition_name",
+          "start": 104,
+          "end": 105
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.cache_partition_delete",
+          "start": 107,
+          "end": 111
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_absolute_api_url",
+          "start": 113,
+          "end": 119
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_api_image_url",
+          "start": 121,
+          "end": 135
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_cache_partitions",
+          "start": 137,
+          "end": 142
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_label",
+          "start": 144,
+          "end": 161
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_source_content_object_dictionary_list",
+          "start": 164,
+          "end": 184
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.get_page_count",
+          "start": 186,
+          "end": 193
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.is_in_trash",
+          "start": 197,
+          "end": 198
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.page_content_objects",
+          "start": 201,
+          "end": 206
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.pages",
+          "start": 209,
+          "end": 219
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.pages_append_all",
+          "start": 221,
+          "end": 239
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.pages_first",
+          "start": 242,
+          "end": 243
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.pages_remap",
+          "start": 251,
+          "end": 312
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.pages_reset",
+          "start": 314,
+          "end": 334
+        },
+        {
+          "name": "DocumentVersionBusinessLogicMixin.uuid",
+          "start": 337,
+          "end": 338
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/document_file_actions.py",
+      "sha256": "3654a11624f358a43b58ee52e9daf6a2cdd1d421b71d7db1587d72986645b203",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/document_file_actions.py",
+      "symbols": [
+        {
+          "name": "DocumentFileActionAppendNewPages",
+          "start": 7,
+          "end": 51
+        },
+        {
+          "name": "DocumentFileActionAppendNewPages.execute",
+          "start": 14,
+          "end": 51
+        },
+        {
+          "name": "DocumentFileActionNothing",
+          "start": 54,
+          "end": 63
+        },
+        {
+          "name": "DocumentFileActionNothing.execute",
+          "start": 62,
+          "end": 63
+        },
+        {
+          "name": "DocumentFileActionUseNewPages",
+          "start": 66,
+          "end": 87
+        },
+        {
+          "name": "DocumentFileActionUseNewPages.execute",
+          "start": 71,
+          "end": 87
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/api_views/document_api_views.py",
+      "sha256": "798986f23535471919926db07e7df21b93d92924751978563eb67d4c8ffb521c",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/api_views/document_api_views.py",
+      "symbols": [
+        {
+          "name": "APIDocumentDetailView",
+          "start": 28,
+          "end": 58
+        },
+        {
+          "name": "APIDocumentDetailView.destroy",
+          "start": 46,
+          "end": 55
+        },
+        {
+          "name": "APIDocumentDetailView.get_instance_extra_data",
+          "start": 57,
+          "end": 58
+        },
+        {
+          "name": "APIDocumentFileActionListView",
+          "start": 61,
+          "end": 75
+        },
+        {
+          "name": "APIDocumentFileActionListView.get_serializer_context",
+          "start": 67,
+          "end": 72
+        },
+        {
+          "name": "APIDocumentFileActionListView.get_source_queryset",
+          "start": 74,
+          "end": 75
+        },
+        {
+          "name": "APIDocumentListView",
+          "start": 78,
+          "end": 102
+        },
+        {
+          "name": "APIDocumentListView.perform_create",
+          "start": 87,
+          "end": 99
+        },
+        {
+          "name": "APIDocumentListView.get_instance_extra_data",
+          "start": 101,
+          "end": 102
+        },
+        {
+          "name": "APIDocumentChangeTypeView",
+          "start": 105,
+          "end": 118
+        },
+        {
+          "name": "APIDocumentChangeTypeView.object_action",
+          "start": 114,
+          "end": 118
+        },
+        {
+          "name": "APIDocumentUploadView",
+          "start": 128,
+          "end": 165
+        },
+        {
+          "name": "APIDocumentUploadView.finalize_response",
+          "start": 138,
+          "end": 148
+        },
+        {
+          "name": "APIDocumentUploadView.perform_create",
+          "start": 150,
+          "end": 162
+        },
+        {
+          "name": "APIDocumentUploadView.get_instance_extra_data",
+          "start": 164,
+          "end": 165
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/api_views/document_file_api_views.py",
+      "sha256": "660fcfc87514c5f988cd250cf239f923971acf8232460c257b675906a3014483",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/api_views/document_file_api_views.py",
+      "symbols": [
+        {
+          "name": "APIDocumentFileListView",
+          "start": 22,
+          "end": 60
+        },
+        {
+          "name": "APIDocumentFileListView.create",
+          "start": 34,
+          "end": 38
+        },
+        {
+          "name": "APIDocumentFileListView.perform_create",
+          "start": 40,
+          "end": 56
+        },
+        {
+          "name": "APIDocumentFileListView.get_source_queryset",
+          "start": 58,
+          "end": 60
+        },
+        {
+          "name": "APIDocumentFileDetailView",
+          "start": 63,
+          "end": 94
+        },
+        {
+          "name": "APIDocumentFileDetailView.destroy",
+          "start": 79,
+          "end": 87
+        },
+        {
+          "name": "APIDocumentFileDetailView.get_instance_extra_data",
+          "start": 89,
+          "end": 90
+        },
+        {
+          "name": "APIDocumentFileDetailView.get_source_queryset",
+          "start": 92,
+          "end": 94
+        },
+        {
+          "name": "APIDocumentFilePageDetailView",
+          "start": 99,
+          "end": 111
+        },
+        {
+          "name": "APIDocumentFilePageDetailView.get_source_queryset",
+          "start": 109,
+          "end": 111
+        },
+        {
+          "name": "APIDocumentFilePageImageView",
+          "start": 114,
+          "end": 126
+        },
+        {
+          "name": "APIDocumentFilePageImageView.get_source_queryset",
+          "start": 124,
+          "end": 126
+        },
+        {
+          "name": "APIDocumentFilePageListView",
+          "start": 129,
+          "end": 138
+        },
+        {
+          "name": "APIDocumentFilePageListView.get_source_queryset",
+          "start": 134,
+          "end": 138
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/api_views/api_view_mixins.py",
+      "sha256": "4019a588cc4cc3d80c17a412d830f1a5c5aa34d2c83799db37acdf7405c6fd67",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/api_views/api_view_mixins.py",
+      "symbols": [
+        {
+          "name": "ParentObjectDocumentAPIViewMixin",
+          "start": 9,
+          "end": 33
+        },
+        {
+          "name": "ParentObjectDocumentAPIViewMixin.get_document",
+          "start": 10,
+          "end": 30
+        },
+        {
+          "name": "ParentObjectDocumentAPIViewMixin.get_document_queryset",
+          "start": 32,
+          "end": 33
+        },
+        {
+          "name": "ParentObjectDocumentFileAPIViewMixin",
+          "start": 36,
+          "end": 52
+        },
+        {
+          "name": "ParentObjectDocumentFileAPIViewMixin.get_document_file",
+          "start": 37,
+          "end": 48
+        },
+        {
+          "name": "ParentObjectDocumentFileAPIViewMixin.get_document_file_queryset",
+          "start": 50,
+          "end": 52
+        },
+        {
+          "name": "ParentObjectDocumentFilePageAPIViewMixin",
+          "start": 55,
+          "end": 73
+        },
+        {
+          "name": "ParentObjectDocumentFilePageAPIViewMixin.get_document_file_page",
+          "start": 58,
+          "end": 69
+        },
+        {
+          "name": "ParentObjectDocumentFilePageAPIViewMixin.get_document_file_page_queryset",
+          "start": 71,
+          "end": 73
+        },
+        {
+          "name": "ParentObjectDocumentTypeAPIViewMixin",
+          "start": 76,
+          "end": 97
+        },
+        {
+          "name": "ParentObjectDocumentTypeAPIViewMixin.get_document_type",
+          "start": 77,
+          "end": 97
+        },
+        {
+          "name": "ParentObjectDocumentVersionAPIViewMixin",
+          "start": 100,
+          "end": 116
+        },
+        {
+          "name": "ParentObjectDocumentVersionAPIViewMixin.get_document_version",
+          "start": 101,
+          "end": 112
+        },
+        {
+          "name": "ParentObjectDocumentVersionAPIViewMixin.get_document_version_queryset",
+          "start": 114,
+          "end": 116
+        },
+        {
+          "name": "ParentObjectDocumentVersionPageAPIViewMixin",
+          "start": 119,
+          "end": 137
+        },
+        {
+          "name": "ParentObjectDocumentVersionPageAPIViewMixin.get_document_version_page",
+          "start": 122,
+          "end": 133
+        },
+        {
+          "name": "ParentObjectDocumentVersionPageAPIViewMixin.get_document_version_page_queryset",
+          "start": 135,
+          "end": 137
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/apps.py",
+      "sha256": "a3e1fd9efd43516469d63f3a4577b3f3a0ec2d4e213b170b5337afd40680e78a",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/apps.py",
+      "symbols": [
+        {
+          "name": "DocumentsApp",
+          "start": 201,
+          "end": 1018
+        },
+        {
+          "name": "DocumentsApp.ready_document_files",
+          "start": 210,
+          "end": 407
+        },
+        {
+          "name": "DocumentsApp.ready_document_recently_accessed",
+          "start": 409,
+          "end": 434
+        },
+        {
+          "name": "DocumentsApp.ready_document_recently_created",
+          "start": 436,
+          "end": 439
+        },
+        {
+          "name": "DocumentsApp.ready_document_trashed",
+          "start": 441,
+          "end": 479
+        },
+        {
+          "name": "DocumentsApp.ready_document_types",
+          "start": 481,
+          "end": 612
+        },
+        {
+          "name": "DocumentsApp.ready_document_versions",
+          "start": 614,
+          "end": 828
+        },
+        {
+          "name": "DocumentsApp.ready_documents",
+          "start": 830,
+          "end": 987
+        },
+        {
+          "name": "DocumentsApp.ready",
+          "start": 989,
+          "end": 1018
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/documents/search.py",
+      "sha256": "2ff534b6b64867ec752979e15758949163aea1ec3ed45fe9ce7c9e167610d0df",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/search.py",
+      "symbols": []
+    },
+    {
+      "path": "mayan/apps/documents/storages.py",
+      "sha256": "effc0dd19a6e2298b3ff79548edd7f5f040055a8b9ace05590fb794f56615176",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/documents/storages.py",
+      "symbols": []
+    },
+    {
+      "path": "mayan/apps/document_downloads/api_views.py",
+      "sha256": "e5e5034c8fa3c095bf04684b7fa91ebdc5be1e4413dda5d90836edd54894322a",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_downloads/api_views.py",
+      "symbols": [
+        {
+          "name": "APIDocumentFileDownloadView",
+          "start": 15,
+          "end": 41
+        },
+        {
+          "name": "APIDocumentFileDownloadView.get_download_filename",
+          "start": 28,
+          "end": 29
+        },
+        {
+          "name": "APIDocumentFileDownloadView.get_serializer",
+          "start": 31,
+          "end": 32
+        },
+        {
+          "name": "APIDocumentFileDownloadView.get_serializer_class",
+          "start": 34,
+          "end": 35
+        },
+        {
+          "name": "APIDocumentFileDownloadView.get_source_queryset",
+          "start": 37,
+          "end": 38
+        },
+        {
+          "name": "APIDocumentFileDownloadView.retrieve",
+          "start": 40,
+          "end": 41
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/storage/api_views/base.py",
+      "sha256": "a222884daf10a818917f8f3d95c5a63f4e979900775f932e87c5ec72699b3bf4",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/storage/api_views/base.py",
+      "symbols": [
+        {
+          "name": "APIObjectDownloadView",
+          "start": 6,
+          "end": 23
+        },
+        {
+          "name": "APIObjectDownloadView.get_download_event_target",
+          "start": 9,
+          "end": 10
+        },
+        {
+          "name": "APIObjectDownloadView.get_download_file_object",
+          "start": 12,
+          "end": 14
+        },
+        {
+          "name": "APIObjectDownloadView.get_serializer",
+          "start": 16,
+          "end": 17
+        },
+        {
+          "name": "APIObjectDownloadView.get_serializer_class",
+          "start": 19,
+          "end": 20
+        },
+        {
+          "name": "APIObjectDownloadView.retrieve",
+          "start": 22,
+          "end": 23
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView",
+          "start": 26,
+          "end": 43
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView.get_download_event_target",
+          "start": 29,
+          "end": 30
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView.get_download_file_object",
+          "start": 32,
+          "end": 34
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView.get_serializer",
+          "start": 36,
+          "end": 37
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView.get_serializer_class",
+          "start": 39,
+          "end": 40
+        },
+        {
+          "name": "APIObjectDownloadBackendDownloadView.retrieve",
+          "start": 42,
+          "end": 43
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/storage/views/mixins.py",
+      "sha256": "c95fdcd3d87be73f0e57f430843dfdeabfd55fca7d0856ff06eb87f406f32240",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/storage/views/mixins.py",
+      "symbols": [
+        {
+          "name": "ViewMixinBackendDownload",
+          "start": 10,
+          "end": 66
+        },
+        {
+          "name": "ViewMixinBackendDownload.as_view",
+          "start": 15,
+          "end": 27
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_backend_arguments",
+          "start": 30,
+          "end": 31
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_backend_instance",
+          "start": 34,
+          "end": 40
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_backend_path",
+          "start": 43,
+          "end": 44
+        },
+        {
+          "name": "ViewMixinBackendDownload.get",
+          "start": 46,
+          "end": 49
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_download_file_object",
+          "start": 51,
+          "end": 54
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_download_filename",
+          "start": 56,
+          "end": 59
+        },
+        {
+          "name": "ViewMixinBackendDownload.get_download_mime_type_and_encoding",
+          "start": 61,
+          "end": 66
+        },
+        {
+          "name": "ViewMixinDownload",
+          "start": 69,
+          "end": 116
+        },
+        {
+          "name": "ViewMixinDownload.get_as_attachment",
+          "start": 72,
+          "end": 73
+        },
+        {
+          "name": "ViewMixinDownload.get_download_file_object",
+          "start": 75,
+          "end": 81
+        },
+        {
+          "name": "ViewMixinDownload.get_download_filename",
+          "start": 83,
+          "end": 84
+        },
+        {
+          "name": "ViewMixinDownload.get_download_mime_type_and_encoding",
+          "start": 86,
+          "end": 92
+        },
+        {
+          "name": "ViewMixinDownload.render_to_response",
+          "start": 94,
+          "end": 116
+        },
+        {
+          "name": "ViewMixinDownloadEvent",
+          "start": 119,
+          "end": 144
+        },
+        {
+          "name": "ViewMixinDownloadEvent.get_download_event_action_object",
+          "start": 122,
+          "end": 123
+        },
+        {
+          "name": "ViewMixinDownloadEvent.get_download_event_actor",
+          "start": 125,
+          "end": 126
+        },
+        {
+          "name": "ViewMixinDownloadEvent.get_download_event_target",
+          "start": 128,
+          "end": 129
+        },
+        {
+          "name": "ViewMixinDownloadEvent.get_download_event_type",
+          "start": 131,
+          "end": 132
+        },
+        {
+          "name": "ViewMixinDownloadEvent.render_to_response",
+          "start": 134,
+          "end": 144
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/acls/models.py",
+      "sha256": "93bef24acded870481100299a0e2174e1dd0e8dddde4c188eb5ebafbd0f89fa0",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/acls/models.py",
+      "symbols": [
+        {
+          "name": "AccessControlList",
+          "start": 23,
+          "end": 88
+        },
+        {
+          "name": "AccessControlList.__str__",
+          "start": 58,
+          "end": 64
+        },
+        {
+          "name": "AccessControlList.delete",
+          "start": 71,
+          "end": 72
+        },
+        {
+          "name": "AccessControlList.get_absolute_url",
+          "start": 74,
+          "end": 77
+        },
+        {
+          "name": "AccessControlList.save",
+          "start": 87,
+          "end": 88
+        },
+        {
+          "name": "GlobalAccessControlListProxy",
+          "start": 91,
+          "end": 93
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/acls/managers.py",
+      "sha256": "4d13baff3d5b11fec140378361a92b27d27f9185cc1adda743c85a6b41ec13bd",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/acls/managers.py",
+      "symbols": [
+        {
+          "name": "AccessControlListManager",
+          "start": 26,
+          "end": 390
+        },
+        {
+          "name": "AccessControlListManager._get_acl_filters",
+          "start": 27,
+          "end": 225
+        },
+        {
+          "name": "AccessControlListManager.check_access",
+          "start": 227,
+          "end": 251
+        },
+        {
+          "name": "AccessControlListManager.restrict_queryset",
+          "start": 253,
+          "end": 275
+        },
+        {
+          "name": "AccessControlListManager.get_inherited_permissions",
+          "start": 277,
+          "end": 290
+        },
+        {
+          "name": "AccessControlListManager._get_inherited_object_permissions",
+          "start": 292,
+          "end": 352
+        },
+        {
+          "name": "AccessControlListManager.grant",
+          "start": 354,
+          "end": 373
+        },
+        {
+          "name": "AccessControlListManager.revoke",
+          "start": 375,
+          "end": 390
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/acls/classes.py",
+      "sha256": "bc14e904f3eb4dfcdccc01fa6f198edadf79b952d781307e2a7fa3a82c377981",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/acls/classes.py",
+      "symbols": [
+        {
+          "name": "ModelPermission",
+          "start": 17,
+          "end": 271
+        },
+        {
+          "name": "ModelPermission.deregister",
+          "start": 25,
+          "end": 26
+        },
+        {
+          "name": "ModelPermission.get_inheritance_ancestor_models",
+          "start": 29,
+          "end": 48
+        },
+        {
+          "name": "ModelPermission.do_inheritance_cycle_check",
+          "start": 51,
+          "end": 67
+        },
+        {
+          "name": "ModelPermission.get_choices_for_class",
+          "start": 70,
+          "end": 89
+        },
+        {
+          "name": "ModelPermission.get_classes",
+          "start": 92,
+          "end": 108
+        },
+        {
+          "name": "ModelPermission.get_field_query_function",
+          "start": 111,
+          "end": 112
+        },
+        {
+          "name": "ModelPermission.get_for_class",
+          "start": 115,
+          "end": 132
+        },
+        {
+          "name": "ModelPermission.get_for_instance",
+          "start": 135,
+          "end": 152
+        },
+        {
+          "name": "ModelPermission.get_inheritances",
+          "start": 155,
+          "end": 159
+        },
+        {
+          "name": "ModelPermission.get_manager",
+          "start": 162,
+          "end": 173
+        },
+        {
+          "name": "ModelPermission.get_manager_name",
+          "start": 176,
+          "end": 177
+        },
+        {
+          "name": "ModelPermission.register",
+          "start": 180,
+          "end": 241
+        },
+        {
+          "name": "ModelPermission.register_field_query_function",
+          "start": 244,
+          "end": 245
+        },
+        {
+          "name": "ModelPermission.register_inheritance",
+          "start": 248,
+          "end": 267
+        },
+        {
+          "name": "ModelPermission.register_manager",
+          "start": 270,
+          "end": 271
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/permissions/model_mixins.py",
+      "sha256": "52ac71a42a1dfa21f9989f9e2ebdd671b28baa1b2bda85bde8154071e801c811",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/permissions/model_mixins.py",
+      "symbols": [
+        {
+          "name": "RoleBusinessLogicMixin",
+          "start": 15,
+          "end": 68
+        },
+        {
+          "name": "RoleBusinessLogicMixin.get_group_count",
+          "start": 16,
+          "end": 17
+        },
+        {
+          "name": "RoleBusinessLogicMixin.get_groups",
+          "start": 19,
+          "end": 27
+        },
+        {
+          "name": "RoleBusinessLogicMixin.get_permission_count",
+          "start": 30,
+          "end": 31
+        },
+        {
+          "name": "RoleBusinessLogicMixin.grant",
+          "start": 34,
+          "end": 35
+        },
+        {
+          "name": "RoleBusinessLogicMixin.groups_add",
+          "start": 37,
+          "end": 42
+        },
+        {
+          "name": "RoleBusinessLogicMixin.groups_remove",
+          "start": 44,
+          "end": 49
+        },
+        {
+          "name": "RoleBusinessLogicMixin.permissions_add",
+          "start": 51,
+          "end": 57
+        },
+        {
+          "name": "RoleBusinessLogicMixin.permissions_remove",
+          "start": 59,
+          "end": 65
+        },
+        {
+          "name": "RoleBusinessLogicMixin.revoke",
+          "start": 67,
+          "end": 68
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin",
+          "start": 71,
+          "end": 124
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin.label",
+          "start": 73,
+          "end": 81
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin.namespace_label",
+          "start": 84,
+          "end": 94
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin.user_has_this",
+          "start": 96,
+          "end": 116
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin.volatile_permission",
+          "start": 119,
+          "end": 120
+        },
+        {
+          "name": "StoredPermissionBusinessLogicMixin.volatile_permission_id",
+          "start": 123,
+          "end": 124
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/permissions/models.py",
+      "sha256": "ccdb9aa959a9b2c2fb1cc0acf6203431ba52149b549ae8eb8d02968afbbb470a",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/permissions/models.py",
+      "symbols": [
+        {
+          "name": "Role",
+          "start": 17,
+          "end": 61
+        },
+        {
+          "name": "Role.__str__",
+          "start": 39,
+          "end": 40
+        },
+        {
+          "name": "Role.get_absolute_url",
+          "start": 42,
+          "end": 43
+        },
+        {
+          "name": "Role.natural_key",
+          "start": 45,
+          "end": 46
+        },
+        {
+          "name": "Role.save",
+          "start": 60,
+          "end": 61
+        },
+        {
+          "name": "StoredPermission",
+          "start": 64,
+          "end": 91
+        },
+        {
+          "name": "StoredPermission.__str__",
+          "start": 80,
+          "end": 81
+        },
+        {
+          "name": "StoredPermission.get_absolute_url",
+          "start": 83,
+          "end": 88
+        },
+        {
+          "name": "StoredPermission.natural_key",
+          "start": 90,
+          "end": 91
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/rest_api/filters.py",
+      "sha256": "7d9cdc8c1ef7405b401fbcd81081e09b836210cb9b3c7ffe0f249ade4348dc62",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/rest_api/filters.py",
+      "symbols": [
+        {
+          "name": "MayanObjectPermissionsFilter",
+          "start": 7,
+          "end": 37
+        },
+        {
+          "name": "MayanObjectPermissionsFilter.filter_queryset",
+          "start": 8,
+          "end": 19
+        },
+        {
+          "name": "MayanObjectPermissionsFilter.get_mayan_object_permission",
+          "start": 21,
+          "end": 37
+        },
+        {
+          "name": "MayanSortingFilter",
+          "start": 40,
+          "end": 57
+        },
+        {
+          "name": "MayanSortingFilter.get_default_valid_fields",
+          "start": 43,
+          "end": 44
+        },
+        {
+          "name": "MayanSortingFilter.get_valid_fields",
+          "start": 46,
+          "end": 57
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/rest_api/generics.py",
+      "sha256": "2448edd2ad4cd75c0f3f59e74a9bf23dff0ae8c64c62fe13c43c58a1b37b12bc",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/rest_api/generics.py",
+      "symbols": [
+        {
+          "name": "GenericAPIView",
+          "start": 19,
+          "end": 30
+        },
+        {
+          "name": "GenericAPIView.initial",
+          "start": 27,
+          "end": 30
+        },
+        {
+          "name": "CreateAPIView",
+          "start": 33,
+          "end": 38
+        },
+        {
+          "name": "ListAPIView",
+          "start": 41,
+          "end": 49
+        },
+        {
+          "name": "ListCreateAPIView",
+          "start": 52,
+          "end": 61
+        },
+        {
+          "name": "ObjectActionAPIView",
+          "start": 64,
+          "end": 125
+        },
+        {
+          "name": "ObjectActionAPIView.get_serializer_context",
+          "start": 70,
+          "end": 79
+        },
+        {
+          "name": "ObjectActionAPIView.get_success_headers",
+          "start": 81,
+          "end": 89
+        },
+        {
+          "name": "ObjectActionAPIView.object_action",
+          "start": 91,
+          "end": 97
+        },
+        {
+          "name": "ObjectActionAPIView.post",
+          "start": 99,
+          "end": 100
+        },
+        {
+          "name": "ObjectActionAPIView.view_action",
+          "start": 102,
+          "end": 125
+        },
+        {
+          "name": "RetrieveAPIView",
+          "start": 128,
+          "end": 134
+        },
+        {
+          "name": "RetrieveDestroyAPIView",
+          "start": 137,
+          "end": 143
+        },
+        {
+          "name": "RetrieveUpdateAPIView",
+          "start": 146,
+          "end": 152
+        },
+        {
+          "name": "RetrieveUpdateDestroyAPIView",
+          "start": 155,
+          "end": 161
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/rest_api/permissions.py",
+      "sha256": "f08004bcd214142c0d5328fd43c6da32bd6bf2d7a023ff562c3865bf7ad2a37f",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/rest_api/permissions.py",
+      "symbols": [
+        {
+          "name": "MayanPermission",
+          "start": 9,
+          "end": 85
+        },
+        {
+          "name": "MayanPermission.get_mayan_object_permission",
+          "start": 10,
+          "end": 25
+        },
+        {
+          "name": "MayanPermission.get_mayan_view_permission",
+          "start": 27,
+          "end": 43
+        },
+        {
+          "name": "MayanPermission.has_object_permission",
+          "start": 45,
+          "end": 64
+        },
+        {
+          "name": "MayanPermission.has_permission",
+          "start": 66,
+          "end": 85
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/rest_api/api_view_mixins.py",
+      "sha256": "c1bb2a8d50a08699d789b3f00f3dbebcb783e1df1d3e3fcea5091044f1552e59",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/rest_api/api_view_mixins.py",
+      "symbols": [
+        {
+          "name": "APIViewMixinOwnerPlusFilteredQueryset",
+          "start": 17,
+          "end": 30
+        },
+        {
+          "name": "APIViewMixinOwnerPlusFilteredQueryset.filter_queryset",
+          "start": 18,
+          "end": 30
+        },
+        {
+          "name": "APIViewMixinExternalObjectOwnerPlusFilteredQueryset",
+          "start": 33,
+          "end": 46
+        },
+        {
+          "name": "APIViewMixinExternalObjectOwnerPlusFilteredQueryset.get_external_object_queryset_filtered",
+          "start": 34,
+          "end": 46
+        },
+        {
+          "name": "AsymmetricSerializerAPIViewMixin",
+          "start": 49,
+          "end": 86
+        },
+        {
+          "name": "AsymmetricSerializerAPIViewMixin.get_read_serializer_class",
+          "start": 54,
+          "end": 62
+        },
+        {
+          "name": "AsymmetricSerializerAPIViewMixin.get_serializer_class",
+          "start": 64,
+          "end": 76
+        },
+        {
+          "name": "AsymmetricSerializerAPIViewMixin.get_write_serializer_class",
+          "start": 78,
+          "end": 86
+        },
+        {
+          "name": "CheckQuerysetAPIViewMixin",
+          "start": 89,
+          "end": 92
+        },
+        {
+          "name": "CheckQuerysetAPIViewMixin.get_source_queryset",
+          "start": 90,
+          "end": 92
+        },
+        {
+          "name": "ContentTypeAPIViewMixin",
+          "start": 95,
+          "end": 108
+        },
+        {
+          "name": "ContentTypeAPIViewMixin.get_content_type",
+          "start": 101,
+          "end": 108
+        },
+        {
+          "name": "DynamicFieldListAPIViewMixin",
+          "start": 111,
+          "end": 127
+        },
+        {
+          "name": "DynamicFieldListAPIViewMixin.get_serializer_extra_context",
+          "start": 112,
+          "end": 127
+        },
+        {
+          "name": "ExternalObjectAPIViewMixin",
+          "start": 130,
+          "end": 153
+        },
+        {
+          "name": "ExternalObjectAPIViewMixin.get_external_object",
+          "start": 131,
+          "end": 135
+        },
+        {
+          "name": "ExternalObjectAPIViewMixin.get_external_object_permission",
+          "start": 137,
+          "end": 146
+        },
+        {
+          "name": "ExternalObjectAPIViewMixin.get_serializer_extra_context",
+          "start": 148,
+          "end": 153
+        },
+        {
+          "name": "ExternalContentTypeObjectAPIViewMixin",
+          "start": 156,
+          "end": 164
+        },
+        {
+          "name": "ExternalContentTypeObjectAPIViewMixin.get_external_object_queryset",
+          "start": 161,
+          "end": 164
+        },
+        {
+          "name": "InstanceExtraDataAPIViewMixin",
+          "start": 167,
+          "end": 186
+        },
+        {
+          "name": "InstanceExtraDataAPIViewMixin.perform_create",
+          "start": 168,
+          "end": 172
+        },
+        {
+          "name": "InstanceExtraDataAPIViewMixin.perform_destroy",
+          "start": 174,
+          "end": 179
+        },
+        {
+          "name": "InstanceExtraDataAPIViewMixin.perform_update",
+          "start": 181,
+          "end": 186
+        },
+        {
+          "name": "QuerySetOverrideCheckAPIViewMixin",
+          "start": 189,
+          "end": 243
+        },
+        {
+          "name": "QuerySetOverrideCheckAPIViewMixin.__init__",
+          "start": 192,
+          "end": 215
+        },
+        {
+          "name": "QuerySetOverrideCheckAPIViewMixin.get_source_queryset",
+          "start": 217,
+          "end": 230
+        },
+        {
+          "name": "QuerySetOverrideCheckAPIViewMixin.get_queryset",
+          "start": 232,
+          "end": 243
+        },
+        {
+          "name": "SchemaInspectionAPIViewMixin",
+          "start": 246,
+          "end": 251
+        },
+        {
+          "name": "SchemaInspectionAPIViewMixin.get_serializer_context",
+          "start": 247,
+          "end": 251
+        },
+        {
+          "name": "SerializerActionAPIViewMixin",
+          "start": 254,
+          "end": 280
+        },
+        {
+          "name": "SerializerActionAPIViewMixin.get_success_headers",
+          "start": 257,
+          "end": 265
+        },
+        {
+          "name": "SerializerActionAPIViewMixin.perform_serializer_action",
+          "start": 267,
+          "end": 268
+        },
+        {
+          "name": "SerializerActionAPIViewMixin.post",
+          "start": 270,
+          "end": 271
+        },
+        {
+          "name": "SerializerActionAPIViewMixin.serializer_action",
+          "start": 273,
+          "end": 280
+        },
+        {
+          "name": "SerializerExtraContextAPIViewMixin",
+          "start": 283,
+          "end": 295
+        },
+        {
+          "name": "SerializerExtraContextAPIViewMixin.get_serializer_context",
+          "start": 284,
+          "end": 292
+        },
+        {
+          "name": "SerializerExtraContextAPIViewMixin.get_serializer_extra_context",
+          "start": 294,
+          "end": 295
+        },
+        {
+          "name": "SuccessHeadersAPIViewMixin",
+          "start": 298,
+          "end": 307
+        },
+        {
+          "name": "SuccessHeadersAPIViewMixin.get_success_headers",
+          "start": 299,
+          "end": 307
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/views/view_mixins.py",
+      "sha256": "5d619ed6054d7816cabad0fc841ce7a77acafe64d748b6d9f63fdf2677d5e1a2",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/views/view_mixins.py",
+      "symbols": [
+        {
+          "name": "ContentTypeViewMixin",
+          "start": 39,
+          "end": 54
+        },
+        {
+          "name": "ContentTypeViewMixin.get_content_type",
+          "start": 45,
+          "end": 54
+        },
+        {
+          "name": "ExtraDataDeleteViewMixin",
+          "start": 57,
+          "end": 63
+        },
+        {
+          "name": "ExtraDataDeleteViewMixin.form_valid",
+          "start": 58,
+          "end": 63
+        },
+        {
+          "name": "DynamicFormViewMixin",
+          "start": 66,
+          "end": 76
+        },
+        {
+          "name": "DynamicFormViewMixin.get_form_kwargs",
+          "start": 69,
+          "end": 76
+        },
+        {
+          "name": "DynamicFieldSetFormViewMixin",
+          "start": 79,
+          "end": 86
+        },
+        {
+          "name": "DynamicFieldSetFormViewMixin.get_form_class",
+          "start": 80,
+          "end": 83
+        },
+        {
+          "name": "DynamicFieldSetFormViewMixin.get_form_fieldsets",
+          "start": 85,
+          "end": 86
+        },
+        {
+          "name": "ExternalObjectBaseMixin",
+          "start": 89,
+          "end": 150
+        },
+        {
+          "name": "ExternalObjectBaseMixin.get_pk_url_kwargs",
+          "start": 96,
+          "end": 108
+        },
+        {
+          "name": "ExternalObjectBaseMixin.get_external_object",
+          "start": 110,
+          "end": 114
+        },
+        {
+          "name": "ExternalObjectBaseMixin.get_external_object_permission",
+          "start": 116,
+          "end": 117
+        },
+        {
+          "name": "ExternalObjectBaseMixin.get_external_object_queryset",
+          "start": 119,
+          "end": 138
+        },
+        {
+          "name": "ExternalObjectBaseMixin.get_external_object_queryset_filtered",
+          "start": 140,
+          "end": 150
+        },
+        {
+          "name": "ExternalObjectViewMixin",
+          "start": 153,
+          "end": 156
+        },
+        {
+          "name": "ExternalObjectViewMixin.dispatch",
+          "start": 154,
+          "end": 156
+        },
+        {
+          "name": "ExternalContentTypeObjectViewMixin",
+          "start": 159,
+          "end": 167
+        },
+        {
+          "name": "ExternalContentTypeObjectViewMixin.get_external_object_queryset",
+          "start": 164,
+          "end": 167
+        },
+        {
+          "name": "ExtraContextViewMixin",
+          "start": 170,
+          "end": 181
+        },
+        {
+          "name": "ExtraContextViewMixin.get_context_data",
+          "start": 173,
+          "end": 178
+        },
+        {
+          "name": "ExtraContextViewMixin.get_extra_context",
+          "start": 180,
+          "end": 181
+        },
+        {
+          "name": "FormExtraKwargsViewMixin",
+          "start": 184,
+          "end": 195
+        },
+        {
+          "name": "FormExtraKwargsViewMixin.get_form_extra_kwargs",
+          "start": 187,
+          "end": 188
+        },
+        {
+          "name": "FormExtraKwargsViewMixin.get_form_kwargs",
+          "start": 190,
+          "end": 195
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother",
+          "start": 198,
+          "end": 240
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother.get_context_data",
+          "start": 203,
+          "end": 221
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother.get_form_save_and_add_another_button_label",
+          "start": 223,
+          "end": 224
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother.get_form_save_and_add_another_button_name",
+          "start": 226,
+          "end": 227
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother.get_form_save_and_add_another_disabled",
+          "start": 229,
+          "end": 230
+        },
+        {
+          "name": "ViewMixinFormSaveAndAddAnother.get_form_save_and_add_another_success_url",
+          "start": 232,
+          "end": 240
+        },
+        {
+          "name": "ViewMixinFormSaveAndTest",
+          "start": 243,
+          "end": 284
+        },
+        {
+          "name": "ViewMixinFormSaveAndTest.get_form_save_and_test_available",
+          "start": 247,
+          "end": 248
+        },
+        {
+          "name": "ViewMixinFormSaveAndTest.get_context_data",
+          "start": 250,
+          "end": 265
+        },
+        {
+          "name": "ViewMixinFormSaveAndTest.form_valid",
+          "start": 267,
+          "end": 279
+        },
+        {
+          "name": "ViewMixinFormSaveAndTest.view_test",
+          "start": 281,
+          "end": 284
+        },
+        {
+          "name": "ListModeViewMixin",
+          "start": 287,
+          "end": 336
+        },
+        {
+          "name": "ListModeViewMixin.get_context_data",
+          "start": 290,
+          "end": 336
+        },
+        {
+          "name": "ModelFormFieldsetsViewMixin",
+          "start": 339,
+          "end": 352
+        },
+        {
+          "name": "ModelFormFieldsetsViewMixin.get_form_class",
+          "start": 342,
+          "end": 352
+        },
+        {
+          "name": "MultipleExternalObjectViewMixin",
+          "start": 355,
+          "end": 381
+        },
+        {
+          "name": "MultipleExternalObjectViewMixin.dispatch",
+          "start": 356,
+          "end": 361
+        },
+        {
+          "name": "MultipleExternalObjectViewMixin.get_external_object_list",
+          "start": 363,
+          "end": 381
+        },
+        {
+          "name": "MultipleObjectViewMixin",
+          "start": 384,
+          "end": 460
+        },
+        {
+          "name": "MultipleObjectViewMixin.dispatch",
+          "start": 388,
+          "end": 393
+        },
+        {
+          "name": "MultipleObjectViewMixin.get",
+          "start": 395,
+          "end": 396
+        },
+        {
+          "name": "MultipleObjectViewMixin.get_context_data",
+          "start": 398,
+          "end": 399
+        },
+        {
+          "name": "MultipleObjectViewMixin.get_object",
+          "start": 401,
+          "end": 402
+        },
+        {
+          "name": "MultipleObjectViewMixin.get_object_first",
+          "start": 404,
+          "end": 405
+        },
+        {
+          "name": "MultipleObjectViewMixin.get_object_list",
+          "start": 407,
+          "end": 450
+        },
+        {
+          "name": "MultipleObjectViewMixin.get_pk_list",
+          "start": 452,
+          "end": 460
+        },
+        {
+          "name": "ObjectActionViewMixin",
+          "start": 463,
+          "end": 587
+        },
+        {
+          "name": "ObjectActionViewMixin.get_context_data",
+          "start": 480,
+          "end": 506
+        },
+        {
+          "name": "ObjectActionViewMixin.get_object_list_count",
+          "start": 508,
+          "end": 515
+        },
+        {
+          "name": "ObjectActionViewMixin.get_object_list_display",
+          "start": 517,
+          "end": 526
+        },
+        {
+          "name": "ObjectActionViewMixin.get_object_list_display_excess_count",
+          "start": 528,
+          "end": 536
+        },
+        {
+          "name": "ObjectActionViewMixin.get_object_list_display_limit",
+          "start": 538,
+          "end": 542
+        },
+        {
+          "name": "ObjectActionViewMixin.get_post_object_action_url",
+          "start": 544,
+          "end": 545
+        },
+        {
+          "name": "ObjectActionViewMixin.get_success_message",
+          "start": 547,
+          "end": 558
+        },
+        {
+          "name": "ObjectActionViewMixin.object_action",
+          "start": 560,
+          "end": 561
+        },
+        {
+          "name": "ObjectActionViewMixin.view_action",
+          "start": 563,
+          "end": 587
+        },
+        {
+          "name": "ObjectNameViewMixin",
+          "start": 590,
+          "end": 606
+        },
+        {
+          "name": "ObjectNameViewMixin.get_object_name",
+          "start": 591,
+          "end": 606
+        },
+        {
+          "name": "RedirectionViewMixin",
+          "start": 609,
+          "end": 672
+        },
+        {
+          "name": "RedirectionViewMixin.get_action_cancel_redirect",
+          "start": 616,
+          "end": 617
+        },
+        {
+          "name": "RedirectionViewMixin.get_context_data",
+          "start": 619,
+          "end": 628
+        },
+        {
+          "name": "RedirectionViewMixin.get_post_action_redirect",
+          "start": 630,
+          "end": 631
+        },
+        {
+          "name": "RedirectionViewMixin.get_destination_url",
+          "start": 633,
+          "end": 651
+        },
+        {
+          "name": "RedirectionViewMixin.get_next_url",
+          "start": 653,
+          "end": 660
+        },
+        {
+          "name": "RedirectionViewMixin.get_previous_url",
+          "start": 662,
+          "end": 669
+        },
+        {
+          "name": "RedirectionViewMixin.get_success_url",
+          "start": 671,
+          "end": 672
+        },
+        {
+          "name": "RedirectWithPageReloadViewMixin",
+          "start": 675,
+          "end": 688
+        },
+        {
+          "name": "RedirectWithPageReloadViewMixin.dispatch",
+          "start": 676,
+          "end": 685
+        },
+        {
+          "name": "RedirectWithPageReloadViewMixin.get_page_reload_enabled",
+          "start": 687,
+          "end": 688
+        },
+        {
+          "name": "ViewMixinModalFragment",
+          "start": 691,
+          "end": 750
+        },
+        {
+          "name": "ViewMixinModalFragment.get_modal_fragment_capable",
+          "start": 696,
+          "end": 697
+        },
+        {
+          "name": "ViewMixinModalFragment.dispatch",
+          "start": 699,
+          "end": 711
+        },
+        {
+          "name": "ViewMixinModalFragment.get_context_data",
+          "start": 713,
+          "end": 724
+        },
+        {
+          "name": "ViewMixinModalFragment.get_modal_form_action",
+          "start": 726,
+          "end": 733
+        },
+        {
+          "name": "ViewMixinModalFragment.get_modal_fragment_requested",
+          "start": 735,
+          "end": 743
+        },
+        {
+          "name": "ViewMixinModalFragment.get_template_names",
+          "start": 745,
+          "end": 750
+        },
+        {
+          "name": "RestrictedQuerysetViewMixin",
+          "start": 753,
+          "end": 786
+        },
+        {
+          "name": "RestrictedQuerysetViewMixin.get_object_permission",
+          "start": 758,
+          "end": 759
+        },
+        {
+          "name": "RestrictedQuerysetViewMixin.get_queryset",
+          "start": 761,
+          "end": 771
+        },
+        {
+          "name": "RestrictedQuerysetViewMixin.get_source_queryset",
+          "start": 773,
+          "end": 786
+        },
+        {
+          "name": "SortingViewMixin",
+          "start": 789,
+          "end": 812
+        },
+        {
+          "name": "SortingViewMixin.get_context_data",
+          "start": 790,
+          "end": 798
+        },
+        {
+          "name": "SortingViewMixin.get_queryset",
+          "start": 800,
+          "end": 809
+        },
+        {
+          "name": "SortingViewMixin.get_sort_fields",
+          "start": 811,
+          "end": 812
+        },
+        {
+          "name": "ViewIconMixin",
+          "start": 815,
+          "end": 827
+        },
+        {
+          "name": "ViewIconMixin.get_context_data",
+          "start": 818,
+          "end": 824
+        },
+        {
+          "name": "ViewIconMixin.get_view_icon",
+          "start": 826,
+          "end": 827
+        },
+        {
+          "name": "ViewMixinConfirmRemember",
+          "start": 830,
+          "end": 893
+        },
+        {
+          "name": "ViewMixinConfirmRemember.get",
+          "start": 831,
+          "end": 870
+        },
+        {
+          "name": "ViewMixinConfirmRemember.post",
+          "start": 872,
+          "end": 893
+        },
+        {
+          "name": "ViewMixinDeleteObject",
+          "start": 896,
+          "end": 922
+        },
+        {
+          "name": "ViewMixinDeleteObject.form_valid",
+          "start": 897,
+          "end": 922
+        },
+        {
+          "name": "ViewMixinExternalObjectOwnerPlusFilteredQueryset",
+          "start": 925,
+          "end": 938
+        },
+        {
+          "name": "ViewMixinExternalObjectOwnerPlusFilteredQueryset.get_external_object_queryset",
+          "start": 926,
+          "end": 938
+        },
+        {
+          "name": "ViewMixinOwnerPlusFilteredQueryset",
+          "start": 941,
+          "end": 954
+        },
+        {
+          "name": "ViewMixinOwnerPlusFilteredQueryset.get_source_queryset",
+          "start": 942,
+          "end": 954
+        },
+        {
+          "name": "ViewMixinPagingArgument",
+          "start": 957,
+          "end": 960
+        },
+        {
+          "name": "ViewMixinPagingArgument.page_kwarg",
+          "start": 959,
+          "end": 960
+        },
+        {
+          "name": "ViewMixinPostAction",
+          "start": 963,
+          "end": 969
+        },
+        {
+          "name": "ViewMixinPostAction.post",
+          "start": 964,
+          "end": 969
+        },
+        {
+          "name": "ViewPermissionCheckViewMixin",
+          "start": 972,
+          "end": 985
+        },
+        {
+          "name": "ViewPermissionCheckViewMixin.dispatch",
+          "start": 975,
+          "end": 982
+        },
+        {
+          "name": "ViewPermissionCheckViewMixin.get_view_permission",
+          "start": 984,
+          "end": 985
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/models/metadata_type_models.py",
+      "sha256": "0af0107a67184cf82a7999b5f29d2504ecab41aaa5a6c39bdbc6240f6dfcaab8",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/models/metadata_type_models.py",
+      "symbols": [
+        {
+          "name": "MetadataType",
+          "start": 17,
+          "end": 144
+        },
+        {
+          "name": "MetadataType.__str__",
+          "start": 79,
+          "end": 80
+        },
+        {
+          "name": "MetadataType.get_absolute_url",
+          "start": 82,
+          "end": 86
+        },
+        {
+          "name": "MetadataType.natural_key",
+          "start": 88,
+          "end": 89
+        },
+        {
+          "name": "MetadataType.save",
+          "start": 102,
+          "end": 103
+        },
+        {
+          "name": "MetadataType.validate_value",
+          "start": 105,
+          "end": 144
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/models/metadata_instance_models.py",
+      "sha256": "d89a24999c0397f02b374a6ae94dc64e8290f14202e75739423f1ed0451e96f8",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/models/metadata_instance_models.py",
+      "symbols": [
+        {
+          "name": "DocumentMetadata",
+          "start": 21,
+          "end": 111
+        },
+        {
+          "name": "DocumentMetadata.__str__",
+          "start": 48,
+          "end": 49
+        },
+        {
+          "name": "DocumentMetadata.clean_fields",
+          "start": 51,
+          "end": 56
+        },
+        {
+          "name": "DocumentMetadata.delete",
+          "start": 64,
+          "end": 77
+        },
+        {
+          "name": "DocumentMetadata.natural_key",
+          "start": 79,
+          "end": 80
+        },
+        {
+          "name": "DocumentMetadata.save",
+          "start": 98,
+          "end": 111
+        },
+        {
+          "name": "DocumentMetadataSearchResult",
+          "start": 114,
+          "end": 116
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/models/document_type_metadata_type_models.py",
+      "sha256": "d8d38462bafb206cd26085462a1afc6b9b9583e222ab330bc024672aa4701a68",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/models/document_type_metadata_type_models.py",
+      "symbols": [
+        {
+          "name": "DocumentTypeMetadataType",
+          "start": 17,
+          "end": 66
+        },
+        {
+          "name": "DocumentTypeMetadataType.__str__",
+          "start": 40,
+          "end": 41
+        },
+        {
+          "name": "DocumentTypeMetadataType.delete",
+          "start": 49,
+          "end": 50
+        },
+        {
+          "name": "DocumentTypeMetadataType.save",
+          "start": 65,
+          "end": 66
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/serializers.py",
+      "sha256": "a16606b99404122e1278f748aab9e54ec3eb79571baeb301297e3caeeb543b71",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/serializers.py",
+      "symbols": [
+        {
+          "name": "MetadataTypeSerializer",
+          "start": 31,
+          "end": 71
+        },
+        {
+          "name": "MetadataTypeSerializer.validate",
+          "start": 47,
+          "end": 71
+        },
+        {
+          "name": "DocumentTypeMetadataTypeSerializer",
+          "start": 74,
+          "end": 126
+        },
+        {
+          "name": "DocumentTypeMetadataTypeSerializer.get_url",
+          "start": 102,
+          "end": 109
+        },
+        {
+          "name": "DocumentTypeMetadataTypeSerializer.validate",
+          "start": 111,
+          "end": 126
+        },
+        {
+          "name": "DocumentMetadataSerializer",
+          "start": 129,
+          "end": 193
+        },
+        {
+          "name": "DocumentMetadataSerializer.get_url",
+          "start": 158,
+          "end": 165
+        },
+        {
+          "name": "DocumentMetadataSerializer.validate",
+          "start": 167,
+          "end": 193
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/apps.py",
+      "sha256": "32e90d187c7cd4463cc6d16ffc1ce98e9c495b541ad5ffaed14d1862fe3534df",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/apps.py",
+      "symbols": [
+        {
+          "name": "MetadataApp",
+          "start": 67,
+          "end": 367
+        },
+        {
+          "name": "MetadataApp.ready",
+          "start": 76,
+          "end": 367
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/metadata/api_views/document_api_views.py",
+      "sha256": "1cfb9f9102154ed40976f2000ecc0c9cb1fdcdc41f74220f9ca0e1ffb381c587",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/metadata/api_views/document_api_views.py",
+      "symbols": [
+        {
+          "name": "APIDocumentMetadataListView",
+          "start": 12,
+          "end": 41
+        },
+        {
+          "name": "APIDocumentMetadataListView.get_instance_extra_data",
+          "start": 28,
+          "end": 32
+        },
+        {
+          "name": "APIDocumentMetadataListView.get_source_queryset",
+          "start": 34,
+          "end": 35
+        },
+        {
+          "name": "APIDocumentMetadataListView.perform_create",
+          "start": 37,
+          "end": 41
+        },
+        {
+          "name": "APIDocumentMetadataView",
+          "start": 44,
+          "end": 74
+        },
+        {
+          "name": "APIDocumentMetadataView.get_instance_extra_data",
+          "start": 70,
+          "end": 71
+        },
+        {
+          "name": "APIDocumentMetadataView.get_source_queryset",
+          "start": 73,
+          "end": 74
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_models.py",
+      "sha256": "c4df24c7c347cfbebcdb72e76c233b6ded1d56eb1d2b285cb3547209d718c8ac",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_models.py",
+      "symbols": [
+        {
+          "name": "Workflow",
+          "start": 23,
+          "end": 87
+        },
+        {
+          "name": "Workflow.__str__",
+          "start": 65,
+          "end": 66
+        },
+        {
+          "name": "Workflow.get_absolute_url",
+          "start": 68,
+          "end": 69
+        },
+        {
+          "name": "Workflow.delete",
+          "start": 71,
+          "end": 73
+        },
+        {
+          "name": "Workflow.save",
+          "start": 86,
+          "end": 87
+        },
+        {
+          "name": "WorkflowRuntimeProxy",
+          "start": 90,
+          "end": 94
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_model_mixins.py",
+      "sha256": "e282cae8b27f173046e024a80654cbc6dfb8be6abb2707bb36f75b728f7b385b",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_model_mixins.py",
+      "symbols": [
+        {
+          "name": "WorkflowBusinessLogicMixin",
+          "start": 28,
+          "end": 215
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.cache",
+          "start": 30,
+          "end": 35
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.cache_partition",
+          "start": 38,
+          "end": 42
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.do_diagram_generate",
+          "start": 44,
+          "end": 58
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.document_types_add",
+          "start": 60,
+          "end": 65
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.document_types_remove",
+          "start": 67,
+          "end": 75
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_image_cache_filename",
+          "start": 77,
+          "end": 83
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.generate_image",
+          "start": 85,
+          "end": 106
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_api_image_url",
+          "start": 108,
+          "end": 117
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_document_types_not_in_workflow",
+          "start": 119,
+          "end": 126
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_hash",
+          "start": 128,
+          "end": 144
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_state_final",
+          "start": 146,
+          "end": 150
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.get_state_initial",
+          "start": 153,
+          "end": 157
+        },
+        {
+          "name": "WorkflowBusinessLogicMixin.launch_for",
+          "start": 160,
+          "end": 215
+        },
+        {
+          "name": "WorkflowRuntimeProxyBusinessLogicMixin",
+          "start": 218,
+          "end": 249
+        },
+        {
+          "name": "WorkflowRuntimeProxyBusinessLogicMixin.get_documents",
+          "start": 219,
+          "end": 231
+        },
+        {
+          "name": "WorkflowRuntimeProxyBusinessLogicMixin.get_document_count",
+          "start": 233,
+          "end": 236
+        },
+        {
+          "name": "WorkflowRuntimeProxyBusinessLogicMixin.get_states",
+          "start": 238,
+          "end": 249
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_state_models.py",
+      "sha256": "b2c0f0b0162b9194dc6e8663c0f8ef9179fb059eb98bdc87667795846dc69296",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_state_models.py",
+      "symbols": [
+        {
+          "name": "WorkflowState",
+          "start": 21,
+          "end": 99
+        },
+        {
+          "name": "WorkflowState.__str__",
+          "start": 61,
+          "end": 62
+        },
+        {
+          "name": "WorkflowState.delete",
+          "start": 70,
+          "end": 71
+        },
+        {
+          "name": "WorkflowState.save",
+          "start": 86,
+          "end": 99
+        },
+        {
+          "name": "WorkflowStateRuntimeProxy",
+          "start": 102,
+          "end": 108
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_state_model_mixins.py",
+      "sha256": "d1725a3beaef82ae427f8a834466b17f213950c9dfd407165edfed58525a6315",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_state_model_mixins.py",
+      "symbols": [
+        {
+          "name": "WorkflowStateBusinessLogicMixin",
+          "start": 19,
+          "end": 144
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.do_active_set",
+          "start": 20,
+          "end": 24
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.do_active_unset",
+          "start": 26,
+          "end": 30
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.do_queryset_actions_execute",
+          "start": 32,
+          "end": 58
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.do_diagram_generate",
+          "start": 60,
+          "end": 94
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.entry_actions",
+          "start": 97,
+          "end": 98
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.exit_actions",
+          "start": 101,
+          "end": 102
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.get_actions_display",
+          "start": 104,
+          "end": 110
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.get_escalations_display",
+          "start": 114,
+          "end": 120
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.get_graph_id",
+          "start": 124,
+          "end": 125
+        },
+        {
+          "name": "WorkflowStateBusinessLogicMixin.get_hash",
+          "start": 127,
+          "end": 144
+        },
+        {
+          "name": "WorkflowStateRuntimeProxyBusinessLogicMixin",
+          "start": 147,
+          "end": 165
+        },
+        {
+          "name": "WorkflowStateRuntimeProxyBusinessLogicMixin.get_documents",
+          "start": 148,
+          "end": 160
+        },
+        {
+          "name": "WorkflowStateRuntimeProxyBusinessLogicMixin.get_document_count",
+          "start": 162,
+          "end": 165
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_instance_models.py",
+      "sha256": "5d1c1d1a7e7d6dacfa4819015ffec41580b1599cb7bec01373eb2c7c5d492b52",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_instance_models.py",
+      "symbols": [
+        {
+          "name": "WorkflowInstance",
+          "start": 28,
+          "end": 95
+        },
+        {
+          "name": "WorkflowInstance.__str__",
+          "start": 71,
+          "end": 72
+        },
+        {
+          "name": "WorkflowInstance.get_absolute_url",
+          "start": 74,
+          "end": 79
+        },
+        {
+          "name": "WorkflowInstance.save",
+          "start": 89,
+          "end": 95
+        },
+        {
+          "name": "WorkflowInstanceLogEntry",
+          "start": 98,
+          "end": 177
+        },
+        {
+          "name": "WorkflowInstanceLogEntry.__str__",
+          "start": 130,
+          "end": 136
+        },
+        {
+          "name": "WorkflowInstanceLogEntry.clean",
+          "start": 138,
+          "end": 160
+        },
+        {
+          "name": "WorkflowInstanceLogEntry.save",
+          "start": 162,
+          "end": 177
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_instance_model_mixins.py",
+      "sha256": "23d6117afd0c0ace5e4bf55ec1486e34a3c3ec718fc8ee0536625e08314880ca",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_instance_model_mixins.py",
+      "symbols": [
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin",
+          "start": 16,
+          "end": 123
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.do_check_escalation",
+          "start": 17,
+          "end": 39
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.do_context_update",
+          "start": 41,
+          "end": 44
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.do_transition",
+          "start": 46,
+          "end": 65
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.dumps",
+          "start": 67,
+          "end": 69
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_context",
+          "start": 71,
+          "end": 75
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_current_state",
+          "start": 77,
+          "end": 80
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_last_log_entry",
+          "start": 82,
+          "end": 83
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_last_log_entry_datetime",
+          "start": 85,
+          "end": 91
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_last_transition",
+          "start": 93,
+          "end": 96
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_queryset_valid_transitions",
+          "start": 98,
+          "end": 117
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.get_runtime_context",
+          "start": 119,
+          "end": 120
+        },
+        {
+          "name": "WorkflowInstanceBusinessLogicMixin.loads",
+          "start": 122,
+          "end": 123
+        },
+        {
+          "name": "WorkflowInstanceLogEntryBusinessLogicMixin",
+          "start": 126,
+          "end": 159
+        },
+        {
+          "name": "WorkflowInstanceLogEntryBusinessLogicMixin.get_destination_state",
+          "start": 127,
+          "end": 131
+        },
+        {
+          "name": "WorkflowInstanceLogEntryBusinessLogicMixin.get_origin_state",
+          "start": 133,
+          "end": 135
+        },
+        {
+          "name": "WorkflowInstanceLogEntryBusinessLogicMixin.get_extra_data",
+          "start": 137,
+          "end": 156
+        },
+        {
+          "name": "WorkflowInstanceLogEntryBusinessLogicMixin.loads",
+          "start": 158,
+          "end": 159
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_transition_models.py",
+      "sha256": "3fe1ec9814e1ab976765c5b16b3547cb7e81231deae59b5578a2bf2980697a5c",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_transition_models.py",
+      "symbols": [
+        {
+          "name": "WorkflowTransition",
+          "start": 23,
+          "end": 88
+        },
+        {
+          "name": "WorkflowTransition.__str__",
+          "start": 62,
+          "end": 63
+        },
+        {
+          "name": "WorkflowTransition.delete",
+          "start": 71,
+          "end": 72
+        },
+        {
+          "name": "WorkflowTransition.save",
+          "start": 87,
+          "end": 88
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_transition_model_mixins.py",
+      "sha256": "f64418bf79c0dc3413fe8f380fe13f69de1dc50add85acdbbb71b86dd2f698bd",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_transition_model_mixins.py",
+      "symbols": [
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin",
+          "start": 11,
+          "end": 90
+        },
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin.do_diagram_generate",
+          "start": 12,
+          "end": 36
+        },
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin.do_execute",
+          "start": 38,
+          "end": 56
+        },
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin.get_field_display",
+          "start": 58,
+          "end": 64
+        },
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin.get_form_schema",
+          "start": 68,
+          "end": 72
+        },
+        {
+          "name": "WorkflowTransitionBusinessLogicMixin.get_hash",
+          "start": 74,
+          "end": 90
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/models/workflow_transition_field_model_mixins.py",
+      "sha256": "c0fa57608a37bcc49e78d8ad492a9ffd484b0cb6147b5077217fa229a86180c0",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/models/workflow_transition_field_model_mixins.py",
+      "symbols": [
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin",
+          "start": 15,
+          "end": 131
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.get_default_value",
+          "start": 16,
+          "end": 20
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.get_form_schema",
+          "start": 22,
+          "end": 80
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.get_hash",
+          "start": 82,
+          "end": 87
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.get_lookup_values",
+          "start": 89,
+          "end": 98
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.get_widget_kwargs",
+          "start": 100,
+          "end": 102
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.has_default",
+          "start": 104,
+          "end": 108
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.has_lookup",
+          "start": 112,
+          "end": 116
+        },
+        {
+          "name": "WorkflowTransitionFieldBusinessLogicMixin.validate_value",
+          "start": 120,
+          "end": 131
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/api_views/workflow_instance_api_views.py",
+      "sha256": "b2d94b660f39793c48afe601669d8eeaa295b8fd0e1934db89f22848fa04a9c1",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/api_views/workflow_instance_api_views.py",
+      "symbols": [
+        {
+          "name": "APIWorkflowInstanceLaunchActionView",
+          "start": 21,
+          "end": 36
+        },
+        {
+          "name": "APIWorkflowInstanceLaunchActionView.get_serializer_extra_context",
+          "start": 30,
+          "end": 32
+        },
+        {
+          "name": "APIWorkflowInstanceLaunchActionView.object_action",
+          "start": 34,
+          "end": 36
+        },
+        {
+          "name": "APIWorkflowInstanceListView",
+          "start": 39,
+          "end": 54
+        },
+        {
+          "name": "APIWorkflowInstanceListView.get_source_queryset",
+          "start": 53,
+          "end": 54
+        },
+        {
+          "name": "APIWorkflowInstanceDetailView",
+          "start": 57,
+          "end": 78
+        },
+        {
+          "name": "APIWorkflowInstanceDetailView.get_source_queryset",
+          "start": 77,
+          "end": 78
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryDetailView",
+          "start": 81,
+          "end": 104
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryDetailView.get_source_queryset",
+          "start": 95,
+          "end": 96
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryDetailView.get_workflow_instance",
+          "start": 98,
+          "end": 104
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryListView",
+          "start": 107,
+          "end": 140
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryListView.get_serializer_extra_context",
+          "start": 123,
+          "end": 129
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryListView.get_source_queryset",
+          "start": 131,
+          "end": 132
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryListView.get_workflow_instance",
+          "start": 134,
+          "end": 140
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryTransitionListView",
+          "start": 143,
+          "end": 179
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryTransitionListView.get_serializer_context",
+          "start": 157,
+          "end": 166
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryTransitionListView.get_source_queryset",
+          "start": 168,
+          "end": 171
+        },
+        {
+          "name": "APIWorkflowInstanceLogEntryTransitionListView.get_workflow_instance",
+          "start": 173,
+          "end": 179
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/serializers/workflow_instance_serializers.py",
+      "sha256": "2ec554a21a597617292459789b363c738ab6ae64fc182bbbaae6fda8f81ec113",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/serializers/workflow_instance_serializers.py",
+      "symbols": [
+        {
+          "name": "WorkflowInstanceLaunchSerializer",
+          "start": 27,
+          "end": 38
+        },
+        {
+          "name": "WorkflowInstanceLaunchSerializer.get_workflow_template_id_queryset",
+          "start": 35,
+          "end": 38
+        },
+        {
+          "name": "WorkflowInstanceLogEntrySerializer",
+          "start": 41,
+          "end": 140
+        },
+        {
+          "name": "WorkflowInstanceLogEntrySerializer.create",
+          "start": 112,
+          "end": 119
+        },
+        {
+          "name": "WorkflowInstanceLogEntrySerializer.get_workflow_instance_transition_queryset",
+          "start": 121,
+          "end": 124
+        },
+        {
+          "name": "WorkflowInstanceLogEntrySerializer.validate",
+          "start": 126,
+          "end": 140
+        },
+        {
+          "name": "WorkflowInstanceSerializer",
+          "start": 143,
+          "end": 237
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_document_url",
+          "start": 191,
+          "end": 197
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_context",
+          "start": 199,
+          "end": 202
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_log_entries_url",
+          "start": 204,
+          "end": 211
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_log_entry_transitions_url",
+          "start": 213,
+          "end": 220
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_url",
+          "start": 222,
+          "end": 229
+        },
+        {
+          "name": "WorkflowInstanceSerializer.get_workflow_template_url",
+          "start": 231,
+          "end": 237
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/handlers.py",
+      "sha256": "49d83fd8e188c31eae88668522cb48d3cb53604ab26045a8ad21fc48fff67004",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/handlers.py",
+      "symbols": [
+        {
+          "name": "handler_create_workflow_image_cache",
+          "start": 12,
+          "end": 18
+        },
+        {
+          "name": "handler_launch_workflow_on_create",
+          "start": 21,
+          "end": 34
+        },
+        {
+          "name": "handler_launch_workflow_on_type_change",
+          "start": 37,
+          "end": 49
+        },
+        {
+          "name": "handler_transition_trigger",
+          "start": 52,
+          "end": 61
+        },
+        {
+          "name": "handler_workflow_template_post_edit",
+          "start": 66,
+          "end": 71
+        },
+        {
+          "name": "handler_workflow_template_state_post_edit",
+          "start": 76,
+          "end": 81
+        },
+        {
+          "name": "handler_workflow_template_state_pre_delete",
+          "start": 84,
+          "end": 89
+        },
+        {
+          "name": "handler_workflow_template_transition_post_edit",
+          "start": 94,
+          "end": 99
+        },
+        {
+          "name": "handler_workflow_template_transition_pre_delete",
+          "start": 102,
+          "end": 107
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/managers.py",
+      "sha256": "c866a20d903186ad3d11b147c4abeb6f7bef57b9e40537c56e38f41b6307ca15",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/managers.py",
+      "symbols": [
+        {
+          "name": "WorkflowManager",
+          "start": 9,
+          "end": 23
+        },
+        {
+          "name": "WorkflowManager.get_queryset_auto_launch",
+          "start": 10,
+          "end": 15
+        },
+        {
+          "name": "WorkflowManager.launch_for",
+          "start": 17,
+          "end": 23
+        },
+        {
+          "name": "WorkflowTransitionTriggerEventManager",
+          "start": 26,
+          "end": 91
+        },
+        {
+          "name": "WorkflowTransitionTriggerEventManager.check_triggers",
+          "start": 27,
+          "end": 91
+        },
+        {
+          "name": "ValidWorkflowInstanceManager",
+          "start": 94,
+          "end": 98
+        },
+        {
+          "name": "ValidWorkflowInstanceManager.get_queryset",
+          "start": 95,
+          "end": 98
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/apps.py",
+      "sha256": "8bd1dfddb6fb2d6d7d1a1efdbbb5b1234324b69b784d45a8d2686bf32c67383c",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/apps.py",
+      "symbols": [
+        {
+          "name": "DocumentStatesApp",
+          "start": 92,
+          "end": 868
+        },
+        {
+          "name": "DocumentStatesApp.ready",
+          "start": 100,
+          "end": 868
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/document_states/tasks.py",
+      "sha256": "c4158137097ce1aac0020aee5561167c0d507310ee9014f2cf26a8eb8b744e8d",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/document_states/tasks.py",
+      "symbols": [
+        {
+          "name": "task_launch_all_workflows",
+          "start": 12,
+          "end": 29
+        },
+        {
+          "name": "task_launch_workflow",
+          "start": 33,
+          "end": 55
+        },
+        {
+          "name": "task_launch_workflow_for",
+          "start": 59,
+          "end": 84
+        },
+        {
+          "name": "task_launch_all_workflow_for",
+          "start": 88,
+          "end": 103
+        },
+        {
+          "name": "task_workflow_instance_do_check_escalation",
+          "start": 107,
+          "end": 113
+        },
+        {
+          "name": "task_workflow_instance_do_check_escalation_all",
+          "start": 117,
+          "end": 136
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/ocr/models.py",
+      "sha256": "ad93b0cd393ede1a988e3c6d11deaebbb277284e705ab9e29a32faed834cd0be",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/models.py",
+      "symbols": [
+        {
+          "name": "DocumentTypeOCRSettings",
+          "start": 18,
+          "end": 37
+        },
+        {
+          "name": "DocumentTypeOCRSettings.natural_key",
+          "start": 35,
+          "end": 36
+        },
+        {
+          "name": "DocumentVersionPageOCRContent",
+          "start": 40,
+          "end": 71
+        },
+        {
+          "name": "DocumentVersionPageOCRContent.__str__",
+          "start": 59,
+          "end": 60
+        },
+        {
+          "name": "DocumentVersionPageOCRContent.save",
+          "start": 70,
+          "end": 71
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/ocr/tasks.py",
+      "sha256": "d0f17179ff8f41bca92d532bd30a8b6c7e577639bbe8fdddd0298eb3b8726f90",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/tasks.py",
+      "symbols": [
+        {
+          "name": "task_document_version_ocr_process",
+          "start": 16,
+          "end": 52
+        },
+        {
+          "name": "task_document_version_page_ocr_process",
+          "start": 56,
+          "end": 93
+        },
+        {
+          "name": "task_document_version_ocr_finished",
+          "start": 97,
+          "end": 130
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/ocr/managers.py",
+      "sha256": "4d9c29e526eb89a38a54dca27baa1a034ec8fb93cf84f5682c1504767f5e61b9",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/managers.py",
+      "symbols": [
+        {
+          "name": "DocumentVersionPageOCRContentManager",
+          "start": 21,
+          "end": 105
+        },
+        {
+          "name": "DocumentVersionPageOCRContentManager.delete_content_for",
+          "start": 22,
+          "end": 28
+        },
+        {
+          "name": "DocumentVersionPageOCRContentManager.do_ocr_finished",
+          "start": 30,
+          "end": 34
+        },
+        {
+          "name": "DocumentVersionPageOCRContentManager.process_document_version_page",
+          "start": 36,
+          "end": 105
+        },
+        {
+          "name": "DocumentTypeSettingsManager",
+          "start": 108,
+          "end": 120
+        },
+        {
+          "name": "DocumentTypeSettingsManager.get_by_natural_key",
+          "start": 109,
+          "end": 120
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/ocr/api_views.py",
+      "sha256": "e577c9494b77a2b09bf94945d7fbc150b38fb4c60b238e190098e3fef918a4c1",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/api_views.py",
+      "symbols": [
+        {
+          "name": "APIDocumentTypeOCRSettingsView",
+          "start": 25,
+          "end": 39
+        },
+        {
+          "name": "APIDocumentOCRSubmitView",
+          "start": 42,
+          "end": 58
+        },
+        {
+          "name": "APIDocumentOCRSubmitView.get_serializer",
+          "start": 50,
+          "end": 51
+        },
+        {
+          "name": "APIDocumentOCRSubmitView.get_serializer_class",
+          "start": 53,
+          "end": 54
+        },
+        {
+          "name": "APIDocumentOCRSubmitView.post",
+          "start": 56,
+          "end": 58
+        },
+        {
+          "name": "APIDocumentVersionPageOCRContentDetailView",
+          "start": 61,
+          "end": 92
+        },
+        {
+          "name": "APIDocumentVersionPageOCRContentDetailView.get_instance_extra_data",
+          "start": 77,
+          "end": 78
+        },
+        {
+          "name": "APIDocumentVersionPageOCRContentDetailView.get_object",
+          "start": 80,
+          "end": 92
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView",
+          "start": 95,
+          "end": 119
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView.get_document",
+          "start": 103,
+          "end": 106
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView.get_serializer",
+          "start": 108,
+          "end": 109
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView.get_serializer_class",
+          "start": 111,
+          "end": 112
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView.get_source_queryset",
+          "start": 114,
+          "end": 115
+        },
+        {
+          "name": "APIDocumentVersionOCRSubmitView.post",
+          "start": 117,
+          "end": 119
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/ocr/search.py",
+      "sha256": "85e9877e3285fa8345e94c5509a1b7b8dfafd839947d9ef8ed5a7c923b93a8e3",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/search.py",
+      "symbols": []
+    },
+    {
+      "path": "mayan/apps/ocr/backends/tesseract.py",
+      "sha256": "f5475e7ad13881f4f2171877a872a70704fbf327eac370a2324cd2ff4eecb2e1",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/ocr/backends/tesseract.py",
+      "symbols": [
+        {
+          "name": "Tesseract",
+          "start": 16,
+          "end": 128
+        },
+        {
+          "name": "Tesseract.__init__",
+          "start": 17,
+          "end": 22
+        },
+        {
+          "name": "Tesseract._execute",
+          "start": 24,
+          "end": 78
+        },
+        {
+          "name": "Tesseract.get_language_is_available",
+          "start": 80,
+          "end": 90
+        },
+        {
+          "name": "Tesseract.get_languages",
+          "start": 92,
+          "end": 103
+        },
+        {
+          "name": "Tesseract.initialize",
+          "start": 105,
+          "end": 114
+        },
+        {
+          "name": "Tesseract.read_settings",
+          "start": 116,
+          "end": 128
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/dynamic_search/search_backends.py",
+      "sha256": "92ae7874b1d362a6f241f27d0046e5a9fc38fc109dcd9a01c4f37a70183f77be",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/dynamic_search/search_backends.py",
+      "symbols": [
+        {
+          "name": "SearchBackend",
+          "start": 25,
+          "end": 475
+        },
+        {
+          "name": "SearchBackend._disable",
+          "start": 33,
+          "end": 81
+        },
+        {
+          "name": "SearchBackend._enable",
+          "start": 84,
+          "end": 169
+        },
+        {
+          "name": "SearchBackend.get_class",
+          "start": 172,
+          "end": 173
+        },
+        {
+          "name": "SearchBackend.get_instance",
+          "start": 176,
+          "end": 182
+        },
+        {
+          "name": "SearchBackend.limit_queryset",
+          "start": 185,
+          "end": 187
+        },
+        {
+          "name": "SearchBackend.index_related_instance_m2m",
+          "start": 190,
+          "end": 268
+        },
+        {
+          "name": "SearchBackend.__init__",
+          "start": 270,
+          "end": 271
+        },
+        {
+          "name": "SearchBackend._search",
+          "start": 273,
+          "end": 277
+        },
+        {
+          "name": "SearchBackend.deindex_instance",
+          "start": 279,
+          "end": 280
+        },
+        {
+          "name": "SearchBackend.do_native_type_conversion",
+          "start": 282,
+          "end": 283
+        },
+        {
+          "name": "SearchBackend.do_query_type_verify",
+          "start": 285,
+          "end": 297
+        },
+        {
+          "name": "SearchBackend.get_field_type_mapping",
+          "start": 299,
+          "end": 300
+        },
+        {
+          "name": "SearchBackend.get_resolved_field_type_map",
+          "start": 302,
+          "end": 331
+        },
+        {
+          "name": "SearchBackend.get_search_field_backend_field_type",
+          "start": 333,
+          "end": 336
+        },
+        {
+          "name": "SearchBackend.get_status",
+          "start": 338,
+          "end": 406
+        },
+        {
+          "name": "SearchBackend.index_instance",
+          "start": 408,
+          "end": 409
+        },
+        {
+          "name": "SearchBackend.index_instances",
+          "start": 411,
+          "end": 412
+        },
+        {
+          "name": "SearchBackend.initialize",
+          "start": 414,
+          "end": 415
+        },
+        {
+          "name": "SearchBackend._initialize",
+          "start": 417,
+          "end": 418
+        },
+        {
+          "name": "SearchBackend.refresh",
+          "start": 420,
+          "end": 421
+        },
+        {
+          "name": "SearchBackend.reset",
+          "start": 423,
+          "end": 424
+        },
+        {
+          "name": "SearchBackend.search",
+          "start": 426,
+          "end": 466
+        },
+        {
+          "name": "SearchBackend.tear_down",
+          "start": 468,
+          "end": 469
+        },
+        {
+          "name": "SearchBackend.test_mode_stop",
+          "start": 471,
+          "end": 472
+        },
+        {
+          "name": "SearchBackend.upgrade",
+          "start": 474,
+          "end": 475
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/dynamic_search/handlers.py",
+      "sha256": "69ac29ea4f4b8f15e39581ed1e83ba26d093890fb6307ad26f7ab9eea143abc2",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/dynamic_search/handlers.py",
+      "symbols": [
+        {
+          "name": "handler_deindex_instance",
+          "start": 12,
+          "end": 21
+        },
+        {
+          "name": "handler_factory_index_related_instance_delete",
+          "start": 24,
+          "end": 55
+        },
+        {
+          "name": "handler_factory_index_related_instance_save",
+          "start": 58,
+          "end": 94
+        },
+        {
+          "name": "handler_factory_index_related_instance_m2m",
+          "start": 97,
+          "end": 131
+        },
+        {
+          "name": "handler_factory_index_instance",
+          "start": 134,
+          "end": 152
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/dynamic_search/tasks.py",
+      "sha256": "aaf0dc86d6c678581ef7608ce2083813faf03be2320ef735c5926bd0c7050d51",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/dynamic_search/tasks.py",
+      "symbols": [
+        {
+          "name": "task_deindex_instance",
+          "start": 30,
+          "end": 40
+        },
+        {
+          "name": "task_index_instance",
+          "start": 48,
+          "end": 90
+        },
+        {
+          "name": "task_index_instances",
+          "start": 98,
+          "end": 117
+        },
+        {
+          "name": "task_index_related_instance_m2m",
+          "start": 126,
+          "end": 161
+        },
+        {
+          "name": "task_reindex_backend",
+          "start": 165,
+          "end": 176
+        },
+        {
+          "name": "task_saved_resultset_expired_delete",
+          "start": 180,
+          "end": 185
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/dynamic_search/scoped_queries.py",
+      "sha256": "b3db910d4cf7cf5974ce3a3606bb4fbf282a6e58c5880b48aebf0ffc651751a8",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/dynamic_search/scoped_queries.py",
+      "symbols": [
+        {
+          "name": "ScopedQuery",
+          "start": 22,
+          "end": 131
+        },
+        {
+          "name": "ScopedQuery.__init__",
+          "start": 26,
+          "end": 29
+        },
+        {
+          "name": "ScopedQuery.__str__",
+          "start": 31,
+          "end": 36
+        },
+        {
+          "name": "ScopedQuery.do_resolve",
+          "start": 38,
+          "end": 52
+        },
+        {
+          "name": "ScopedQuery.do_scope_entry_add",
+          "start": 54,
+          "end": 57
+        },
+        {
+          "name": "ScopedQuery.do_scope_entry_init",
+          "start": 59,
+          "end": 65
+        },
+        {
+          "name": "ScopedQuery.do_scope_solve",
+          "start": 67,
+          "end": 72
+        },
+        {
+          "name": "ScopedQuery.get_scope_entry_by_identifier",
+          "start": 74,
+          "end": 84
+        },
+        {
+          "name": "ScopedQuery.get_scope_identifier_list",
+          "start": 86,
+          "end": 96
+        },
+        {
+          "name": "ScopedQuery.get_term_list",
+          "start": 98,
+          "end": 110
+        },
+        {
+          "name": "ScopedQuery.is_empty",
+          "start": 113,
+          "end": 116
+        },
+        {
+          "name": "ScopedQuery.to_explain",
+          "start": 118,
+          "end": 122
+        },
+        {
+          "name": "ScopedQuery.to_string",
+          "start": 124,
+          "end": 131
+        },
+        {
+          "name": "ScopedQueryEntry",
+          "start": 134,
+          "end": 234
+        },
+        {
+          "name": "ScopedQueryEntry._check",
+          "start": 138,
+          "end": 139
+        },
+        {
+          "name": "ScopedQueryEntry.all",
+          "start": 142,
+          "end": 143
+        },
+        {
+          "name": "ScopedQueryEntry.check",
+          "start": 146,
+          "end": 151
+        },
+        {
+          "name": "ScopedQueryEntry.init",
+          "start": 154,
+          "end": 164
+        },
+        {
+          "name": "ScopedQueryEntry.register",
+          "start": 167,
+          "end": 168
+        },
+        {
+          "name": "ScopedQueryEntry.__init__",
+          "start": 170,
+          "end": 171
+        },
+        {
+          "name": "ScopedQueryEntry.do_post_add_callback",
+          "start": 173,
+          "end": 174
+        },
+        {
+          "name": "ScopedQueryEntry.do_pre_add_callback",
+          "start": 176,
+          "end": 177
+        },
+        {
+          "name": "ScopedQueryEntry.do_resolve",
+          "start": 179,
+          "end": 180
+        },
+        {
+          "name": "ScopedQueryEntry.do_template_render",
+          "start": 182,
+          "end": 191
+        },
+        {
+          "name": "ScopedQueryEntry.get_template",
+          "start": 193,
+          "end": 194
+        },
+        {
+          "name": "ScopedQueryEntry.get_template_context_defaults",
+          "start": 196,
+          "end": 200
+        },
+        {
+          "name": "ScopedQueryEntry.get_template_explain_context",
+          "start": 202,
+          "end": 203
+        },
+        {
+          "name": "ScopedQueryEntry.get_template_key_context",
+          "start": 205,
+          "end": 206
+        },
+        {
+          "name": "ScopedQueryEntry.get_template_value_context",
+          "start": 208,
+          "end": 209
+        },
+        {
+          "name": "ScopedQueryEntry.get_term_list",
+          "start": 211,
+          "end": 212
+        },
+        {
+          "name": "ScopedQueryEntry.is_empty",
+          "start": 215,
+          "end": 216
+        },
+        {
+          "name": "ScopedQueryEntry.to_explain",
+          "start": 218,
+          "end": 222
+        },
+        {
+          "name": "ScopedQueryEntry.to_string",
+          "start": 224,
+          "end": 234
+        },
+        {
+          "name": "ScopedQueryEntryData",
+          "start": 237,
+          "end": 260
+        },
+        {
+          "name": "ScopedQueryEntryData.__init__",
+          "start": 238,
+          "end": 240
+        },
+        {
+          "name": "ScopedQueryEntryData.do_pre_add_callback",
+          "start": 242,
+          "end": 243
+        },
+        {
+          "name": "ScopedQueryEntryData.do_scope_identifier_check",
+          "start": 245,
+          "end": 257
+        },
+        {
+          "name": "ScopedQueryEntryData.get_template_key_context",
+          "start": 259,
+          "end": 260
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter",
+          "start": 263,
+          "end": 427
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter._check",
+          "start": 271,
+          "end": 307
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.__init__",
+          "start": 309,
+          "end": 318
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.__str__",
+          "start": 320,
+          "end": 323
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.do_resolve",
+          "start": 325,
+          "end": 378
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.get_template_explain_context",
+          "start": 380,
+          "end": 397
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.get_template_key_context",
+          "start": 399,
+          "end": 406
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.get_template_value_context",
+          "start": 408,
+          "end": 409
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.get_term_list",
+          "start": 411,
+          "end": 417
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.is_empty",
+          "start": 420,
+          "end": 421
+        },
+        {
+          "name": "ScopedQueryEntryDataFilter.search_field",
+          "start": 424,
+          "end": 427
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator",
+          "start": 430,
+          "end": 555
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator._check",
+          "start": 438,
+          "end": 452
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.__init__",
+          "start": 454,
+          "end": 472
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.__str__",
+          "start": 474,
+          "end": 477
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.do_resolve",
+          "start": 479,
+          "end": 493
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.get_template_explain_context",
+          "start": 495,
+          "end": 519
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.get_template_key_context",
+          "start": 521,
+          "end": 530
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.get_template_value_context",
+          "start": 532,
+          "end": 538
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.get_term_list",
+          "start": 540,
+          "end": 551
+        },
+        {
+          "name": "ScopedQueryEntryDataOperator.operator_function",
+          "start": 554,
+          "end": 555
+        },
+        {
+          "name": "ScopedQueryEntryControl",
+          "start": 558,
+          "end": 559
+        },
+        {
+          "name": "ScopedQueryEntryControlResult",
+          "start": 562,
+          "end": 639
+        },
+        {
+          "name": "ScopedQueryEntryControlResult._check",
+          "start": 570,
+          "end": 574
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.__init__",
+          "start": 576,
+          "end": 578
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.__str__",
+          "start": 580,
+          "end": 581
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.do_post_add_callback",
+          "start": 583,
+          "end": 584
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.do_resolve",
+          "start": 586,
+          "end": 591
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.get_template_explain_context",
+          "start": 593,
+          "end": 606
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.get_template_key_context",
+          "start": 608,
+          "end": 617
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.get_term_list",
+          "start": 619,
+          "end": 627
+        },
+        {
+          "name": "ScopedQueryEntryControlResult.get_template_value_context",
+          "start": 629,
+          "end": 639
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/events/classes.py",
+      "sha256": "49b5fbea26da141a561ac67024960c6db374e906e17db70fbbf03bdc9de28ad6",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/events/classes.py",
+      "symbols": [
+        {
+          "name": "ActionExporter",
+          "start": 42,
+          "end": 131
+        },
+        {
+          "name": "ActionExporter.__init__",
+          "start": 43,
+          "end": 45
+        },
+        {
+          "name": "ActionExporter.export",
+          "start": 47,
+          "end": 74
+        },
+        {
+          "name": "ActionExporter.export_to_download_file",
+          "start": 76,
+          "end": 131
+        },
+        {
+          "name": "EventModelRegistry",
+          "start": 134,
+          "end": 211
+        },
+        {
+          "name": "EventModelRegistry.register",
+          "start": 138,
+          "end": 211
+        },
+        {
+          "name": "EventTypeNamespaceMetaclass",
+          "start": 214,
+          "end": 233
+        },
+        {
+          "name": "EventTypeNamespaceMetaclass.all",
+          "start": 218,
+          "end": 221
+        },
+        {
+          "name": "EventTypeNamespaceMetaclass.get",
+          "start": 224,
+          "end": 225
+        },
+        {
+          "name": "EventTypeNamespaceMetaclass.__call__",
+          "start": 227,
+          "end": 233
+        },
+        {
+          "name": "EventTypeNamespace",
+          "start": 236,
+          "end": 281
+        },
+        {
+          "name": "EventTypeNamespace.post_load_modules",
+          "start": 242,
+          "end": 248
+        },
+        {
+          "name": "EventTypeNamespace.__init__",
+          "start": 250,
+          "end": 254
+        },
+        {
+          "name": "EventTypeNamespace.__lt__",
+          "start": 256,
+          "end": 257
+        },
+        {
+          "name": "EventTypeNamespace.__str__",
+          "start": 259,
+          "end": 260
+        },
+        {
+          "name": "EventTypeNamespace.add_event_type",
+          "start": 262,
+          "end": 265
+        },
+        {
+          "name": "EventTypeNamespace.do_delete",
+          "start": 267,
+          "end": 270
+        },
+        {
+          "name": "EventTypeNamespace.event_type_remove",
+          "start": 272,
+          "end": 273
+        },
+        {
+          "name": "EventTypeNamespace.get_event",
+          "start": 275,
+          "end": 278
+        },
+        {
+          "name": "EventTypeNamespace.get_event_types",
+          "start": 280,
+          "end": 281
+        },
+        {
+          "name": "EventType",
+          "start": 284,
+          "end": 504
+        },
+        {
+          "name": "EventType.sort",
+          "start": 288,
+          "end": 293
+        },
+        {
+          "name": "EventType.all",
+          "start": 296,
+          "end": 299
+        },
+        {
+          "name": "EventType.get",
+          "start": 302,
+          "end": 303
+        },
+        {
+          "name": "EventType.get_label",
+          "start": 306,
+          "end": 314
+        },
+        {
+          "name": "EventType.refresh",
+          "start": 317,
+          "end": 356
+        },
+        {
+          "name": "EventType.__init__",
+          "start": 358,
+          "end": 370
+        },
+        {
+          "name": "EventType.__str__",
+          "start": 372,
+          "end": 373
+        },
+        {
+          "name": "EventType._commit",
+          "start": 375,
+          "end": 443
+        },
+        {
+          "name": "EventType.commit",
+          "start": 445,
+          "end": 482
+        },
+        {
+          "name": "EventType.do_delete",
+          "start": 484,
+          "end": 488
+        },
+        {
+          "name": "EventType.get_stored_event_type",
+          "start": 490,
+          "end": 500
+        },
+        {
+          "name": "EventType.id",
+          "start": 503,
+          "end": 504
+        },
+        {
+          "name": "ModelEventType",
+          "start": 507,
+          "end": 562
+        },
+        {
+          "name": "ModelEventType.deregister_event_type",
+          "start": 512,
+          "end": 516
+        },
+        {
+          "name": "ModelEventType.get_for_class",
+          "start": 519,
+          "end": 523
+        },
+        {
+          "name": "ModelEventType.get_for_instance",
+          "start": 526,
+          "end": 546
+        },
+        {
+          "name": "ModelEventType.get_inheritance",
+          "start": 549,
+          "end": 550
+        },
+        {
+          "name": "ModelEventType.register",
+          "start": 553,
+          "end": 558
+        },
+        {
+          "name": "ModelEventType.register_inheritance",
+          "start": 561,
+          "end": 562
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/events/tasks.py",
+      "sha256": "5d3a50d34a0f244d10d4f2870cbf72432c26d2409db33cfc16a4c7f086955f86",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/events/tasks.py",
+      "symbols": [
+        {
+          "name": "task_event_commit",
+          "start": 17,
+          "end": 46
+        },
+        {
+          "name": "task_event_prune",
+          "start": 50,
+          "end": 53
+        },
+        {
+          "name": "task_event_queryset_clear",
+          "start": 57,
+          "end": 98
+        },
+        {
+          "name": "task_event_queryset_export",
+          "start": 102,
+          "end": 117
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/events/queues.py",
+      "sha256": "e57d33b358d4dd2d459f687ec7679d9c469fe0f450bb7db52c2e05b60c19053d",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/events/queues.py",
+      "symbols": []
+    },
+    {
+      "path": "mayan/apps/task_manager/task_classes.py",
+      "sha256": "71a59351cb12dc64d69e7427e32b9d9e95bd6b84b20ef95bb399771bf8425fbd",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/task_manager/task_classes.py",
+      "symbols": [
+        {
+          "name": "DeduplicatedTask",
+          "start": 10,
+          "end": 88
+        },
+        {
+          "name": "DeduplicatedTask.do_apply_async",
+          "start": 11,
+          "end": 12
+        },
+        {
+          "name": "DeduplicatedTask.get_is_retry",
+          "start": 14,
+          "end": 20
+        },
+        {
+          "name": "DeduplicatedTask.get_task_type",
+          "start": 22,
+          "end": 30
+        },
+        {
+          "name": "DeduplicatedTask.apply_async",
+          "start": 32,
+          "end": 46
+        },
+        {
+          "name": "DeduplicatedTask.before_start",
+          "start": 48,
+          "end": 60
+        },
+        {
+          "name": "DeduplicatedTask.on_failure",
+          "start": 62,
+          "end": 74
+        },
+        {
+          "name": "DeduplicatedTask.on_success",
+          "start": 76,
+          "end": 88
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/task_manager/task_deduplication_backends.py",
+      "sha256": "91f74ff55ac50f8fd258d8681279ddccd48ec5d05b15e8ad1bdccee579b300bb",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/task_manager/task_deduplication_backends.py",
+      "symbols": [
+        {
+          "name": "TaskDeduplicationBackend",
+          "start": 18,
+          "end": 54
+        },
+        {
+          "name": "TaskDeduplicationBackend.do_initialize",
+          "start": 22,
+          "end": 28
+        },
+        {
+          "name": "TaskDeduplicationBackend.get_deduplication_entry_model",
+          "start": 31,
+          "end": 34
+        },
+        {
+          "name": "TaskDeduplicationBackend.initialize",
+          "start": 37,
+          "end": 38
+        },
+        {
+          "name": "TaskDeduplicationBackend.do_dispatch",
+          "start": 41,
+          "end": 42
+        },
+        {
+          "name": "TaskDeduplicationBackend.do_before_start",
+          "start": 45,
+          "end": 46
+        },
+        {
+          "name": "TaskDeduplicationBackend.do_failure",
+          "start": 49,
+          "end": 50
+        },
+        {
+          "name": "TaskDeduplicationBackend.do_success",
+          "start": 53,
+          "end": 54
+        },
+        {
+          "name": "TaskDeduplicationBackendNull",
+          "start": 57,
+          "end": 62
+        },
+        {
+          "name": "TaskDeduplicationBackendNull.do_dispatch",
+          "start": 61,
+          "end": 62
+        },
+        {
+          "name": "TaskDeduplicationBackendMarkerMixin",
+          "start": 65,
+          "end": 111
+        },
+        {
+          "name": "TaskDeduplicationBackendMarkerMixin.do_before_start",
+          "start": 67,
+          "end": 74
+        },
+        {
+          "name": "TaskDeduplicationBackendMarkerMixin.do_dispatch",
+          "start": 77,
+          "end": 101
+        },
+        {
+          "name": "TaskDeduplicationBackendMarkerMixin.do_dispatch_schedule",
+          "start": 104,
+          "end": 111
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnCompletion",
+          "start": 114,
+          "end": 150
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnCompletion.initialize",
+          "start": 120,
+          "end": 125
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnCompletion.do_failure",
+          "start": 128,
+          "end": 131
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnCompletion.do_release",
+          "start": 134,
+          "end": 144
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnCompletion.do_success",
+          "start": 147,
+          "end": 150
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnStart",
+          "start": 153,
+          "end": 166
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnStart.do_before_start",
+          "start": 159,
+          "end": 166
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnDispatch",
+          "start": 169,
+          "end": 185
+        },
+        {
+          "name": "TaskDeduplicationBackendReleaseOnDispatch.do_dispatch_schedule",
+          "start": 175,
+          "end": 185
+        },
+        {
+          "name": "TaskDeduplicationBackendManual",
+          "start": 188,
+          "end": 191
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/task_manager/classes.py",
+      "sha256": "7b4e8e151b36f31423ce222f148efbe7059a8004e41e8606e9ef9f708a0ca780",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/task_manager/classes.py",
+      "symbols": [
+        {
+          "name": "TaskType",
+          "start": 23,
+          "end": 149
+        },
+        {
+          "name": "TaskType.all",
+          "start": 27,
+          "end": 37
+        },
+        {
+          "name": "TaskType.get",
+          "start": 40,
+          "end": 41
+        },
+        {
+          "name": "TaskType.__init__",
+          "start": 43,
+          "end": 53
+        },
+        {
+          "name": "TaskType.__str__",
+          "start": 55,
+          "end": 56
+        },
+        {
+          "name": "TaskType.do_deduplication_backend_override",
+          "start": 58,
+          "end": 76
+        },
+        {
+          "name": "TaskType.get_deduplication_backend_label",
+          "start": 78,
+          "end": 79
+        },
+        {
+          "name": "TaskType.get_deduplication_key",
+          "start": 89,
+          "end": 95
+        },
+        {
+          "name": "TaskType.get_dotted_path",
+          "start": 97,
+          "end": 98
+        },
+        {
+          "name": "TaskType.get_label",
+          "start": 103,
+          "end": 104
+        },
+        {
+          "name": "TaskType.get_name",
+          "start": 111,
+          "end": 113
+        },
+        {
+          "name": "TaskType.get_queue",
+          "start": 118,
+          "end": 120
+        },
+        {
+          "name": "TaskType.get_schedule",
+          "start": 124,
+          "end": 125
+        },
+        {
+          "name": "TaskType.get_worker",
+          "start": 133,
+          "end": 137
+        },
+        {
+          "name": "TaskType.validate",
+          "start": 141,
+          "end": 149
+        },
+        {
+          "name": "Task",
+          "start": 152,
+          "end": 158
+        },
+        {
+          "name": "Task.__init__",
+          "start": 153,
+          "end": 155
+        },
+        {
+          "name": "Task.__str__",
+          "start": 157,
+          "end": 158
+        },
+        {
+          "name": "CeleryQueue",
+          "start": 161,
+          "end": 314
+        },
+        {
+          "name": "CeleryQueue.all",
+          "start": 167,
+          "end": 170
+        },
+        {
+          "name": "CeleryQueue.get",
+          "start": 173,
+          "end": 174
+        },
+        {
+          "name": "CeleryQueue.post_load_modules",
+          "start": 177,
+          "end": 202
+        },
+        {
+          "name": "CeleryQueue.update_celery",
+          "start": 205,
+          "end": 207
+        },
+        {
+          "name": "CeleryQueue.__init__",
+          "start": 209,
+          "end": 225
+        },
+        {
+          "name": "CeleryQueue.__str__",
+          "start": 227,
+          "end": 228
+        },
+        {
+          "name": "CeleryQueue._update_celery",
+          "start": 230,
+          "end": 263
+        },
+        {
+          "name": "CeleryQueue.get_absolute_url",
+          "start": 265,
+          "end": 269
+        },
+        {
+          "name": "CeleryQueue.add_task_type",
+          "start": 271,
+          "end": 276
+        },
+        {
+          "name": "CeleryQueue.get_task_type_count",
+          "start": 278,
+          "end": 279
+        },
+        {
+          "name": "CeleryQueue.remove",
+          "start": 286,
+          "end": 310
+        },
+        {
+          "name": "CeleryQueue.verbose_name",
+          "start": 313,
+          "end": 314
+        },
+        {
+          "name": "Worker",
+          "start": 317,
+          "end": 403
+        },
+        {
+          "name": "Worker.all",
+          "start": 321,
+          "end": 324
+        },
+        {
+          "name": "Worker.get",
+          "start": 327,
+          "end": 328
+        },
+        {
+          "name": "Worker.get_default",
+          "start": 331,
+          "end": 338
+        },
+        {
+          "name": "Worker.__init__",
+          "start": 340,
+          "end": 354
+        },
+        {
+          "name": "Worker.__str__",
+          "start": 356,
+          "end": 357
+        },
+        {
+          "name": "Worker.get_absolute_url",
+          "start": 359,
+          "end": 363
+        },
+        {
+          "name": "Worker.get_maximum_memory_per_child",
+          "start": 365,
+          "end": 366
+        },
+        {
+          "name": "Worker.get_queue_count",
+          "start": 376,
+          "end": 377
+        },
+        {
+          "name": "Worker.get_task_type_count",
+          "start": 381,
+          "end": 386
+        },
+        {
+          "name": "Worker.label",
+          "start": 394,
+          "end": 395
+        },
+        {
+          "name": "Worker.queues",
+          "start": 398,
+          "end": 399
+        },
+        {
+          "name": "Worker.verbose_name",
+          "start": 402,
+          "end": 403
+        }
+      ]
+    },
+    {
+      "path": "mayan/apps/sources/api_views/source_action_api_views.py",
+      "sha256": "680246a303ae6eb36280586522d48f7a77d4081e9c5588a29ca499ecf58587e3",
+      "url": "https://gitlab.com/mayan-edms/mayan-edms/-/blob/834ffec1b539171390358e60a0406870108514f5/mayan/apps/sources/api_views/source_action_api_views.py",
+      "symbols": [
+        {
+          "name": "APISourceActionDetailView",
+          "start": 14,
+          "end": 30
+        },
+        {
+          "name": "APISourceActionDetailView.get_object",
+          "start": 24,
+          "end": 27
+        },
+        {
+          "name": "APISourceActionDetailView.get_source_queryset",
+          "start": 29,
+          "end": 30
+        },
+        {
+          "name": "APISourceActionExecuteView",
+          "start": 33,
+          "end": 134
+        },
+        {
+          "name": "APISourceActionExecuteView.get",
+          "start": 43,
+          "end": 52
+        },
+        {
+          "name": "APISourceActionExecuteView.get_object",
+          "start": 54,
+          "end": 76
+        },
+        {
+          "name": "APISourceActionExecuteView.get_parent_queryset_source",
+          "start": 78,
+          "end": 79
+        },
+        {
+          "name": "APISourceActionExecuteView.get_serializer_extra_context",
+          "start": 81,
+          "end": 84
+        },
+        {
+          "name": "APISourceActionExecuteView.get_source_queryset",
+          "start": 86,
+          "end": 89
+        },
+        {
+          "name": "APISourceActionExecuteView.post",
+          "start": 91,
+          "end": 100
+        },
+        {
+          "name": "APISourceActionExecuteView.view_action",
+          "start": 102,
+          "end": 134
+        },
+        {
+          "name": "APISourceActionListView",
+          "start": 137,
+          "end": 149
+        },
+        {
+          "name": "APISourceActionListView.get_source_queryset",
+          "start": 146,
+          "end": 149
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "name": "metadata_required_empty_rejected",
+      "source": "mayan/apps/metadata/models/metadata_type_models.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "metadata_default_before_required",
+      "source": "mayan/apps/metadata/models/metadata_type_models.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "metadata_lookup_rejects_unlisted_value",
+      "source": "mayan/apps/metadata/models/metadata_type_models.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "metadata_validation_precedes_parser",
+      "source": "mayan/apps/metadata/models/metadata_type_models.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "acl_anonymous_empty",
+      "source": "mayan/apps/acls/managers.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "acl_global_grant_preserves_queryset",
+      "source": "mayan/apps/acls/managers.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "acl_local_filters_combined_or",
+      "source": "mayan/apps/acls/managers.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "append_without_active_version_starts_page_1",
+      "source": "mayan/apps/documents/document_file_actions.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "append_keeps_old_pages_and_appends_new",
+      "source": "mayan/apps/documents/document_file_actions.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    },
+    {
+      "name": "workflow_log_clean_empty_extra_data_does_not_visit_field_definitions",
+      "source": "mayan/apps/document_states/models/workflow_instance_models.py",
+      "passed": true,
+      "scope": "isolated method; collaborators simulated"
+    }
+  ],
+  "summary": {
+    "files_hashed": 67,
+    "python_files_parsed": 66,
+    "isolated_checks_passed": 10
+  }
+}

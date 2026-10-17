@@ -1,0 +1,23 @@
+{
+  "fechaLocal": "2026-10-16",
+  "entorno": "http://localhost:8085",
+  "simulacion": "API, sesión, historial y eventos ficticios sobre la interfaz real; sin modelos ni escrituras reales",
+  "historyPieces": 122,
+  "progressVisibleBeforeAction": true,
+  "progressVisibleAfterAction": false,
+  "mountedHiddenNodes": 272,
+  "scrollBefore": 0,
+  "scrollAfter": {
+    "top": 6288,
+    "height": 434,
+    "total": 6736
+  },
+  "mobile": {
+    "width": 390,
+    "pageWidth": 390,
+    "chatHeight": 239
+  },
+  "unexpectedWrites": [],
+  "errors": [],
+  "timing": "No mide latencia del modelo ni rendimiento comparado."
+}

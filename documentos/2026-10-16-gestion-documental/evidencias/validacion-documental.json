@@ -1,0 +1,60 @@
+{
+  "documents": [
+    {
+      "file": "00-informe-principal.md",
+      "words": 1932,
+      "diagrams": 0,
+      "local_links": 22,
+      "errors": []
+    },
+    {
+      "file": "01-docuware.md",
+      "words": 2396,
+      "diagrams": 1,
+      "local_links": 2,
+      "errors": []
+    },
+    {
+      "file": "02-mayan-edms.md",
+      "words": 4709,
+      "diagrams": 4,
+      "local_links": 5,
+      "errors": []
+    },
+    {
+      "file": "03-m-files.md",
+      "words": 3911,
+      "diagrams": 1,
+      "local_links": 1,
+      "errors": []
+    },
+    {
+      "file": "04-rossum.md",
+      "words": 3932,
+      "diagrams": 1,
+      "local_links": 1,
+      "errors": []
+    },
+    {
+      "file": "05-arquitectura-y-aprendizajes.md",
+      "words": 1569,
+      "diagrams": 3,
+      "local_links": 7,
+      "errors": []
+    },
+    {
+      "file": "06-protocolo-de-pruebas.md",
+      "words": 2016,
+      "diagrams": 0,
+      "local_links": 2,
+      "errors": []
+    }
+  ],
+  "document_count": 7,
+  "diagram_count": 10,
+  "public_urls_unique": 132,
+  "local_links_checked": 40,
+  "mayan_hashes_verified": 67,
+  "mayan_isolated_results_recorded": 10,
+  "product_end_to_end": false
+}

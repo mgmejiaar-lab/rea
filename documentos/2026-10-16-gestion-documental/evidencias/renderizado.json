@@ -1,0 +1,126 @@
+{
+  "renderer": "Marked via published CDN; Mermaid 12.2.0",
+  "context": "isolated about:blank preview, not Taller document viewer",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "visual_review": "Capturas de escritorio inspeccionadas; flujos ajustados a dirección vertical y etiquetas de secuencias abreviadas para mejorar la lectura.",
+  "not_tested": [
+    "Visor de Documentos del Taller",
+    "Exportación a Word o PDF",
+    "Lectura móvil"
+  ],
+  "adjusted_diagrams": [
+    {
+      "file": "02-mayan-edms.md",
+      "titles": 1,
+      "tables": 7,
+      "diagrams": 4,
+      "unrendered": 0,
+      "sizes": [
+        {
+          "width": 1023,
+          "scale": 1
+        },
+        {
+          "width": 1068,
+          "scale": 0.81
+        },
+        {
+          "width": 1068,
+          "scale": 0.71
+        },
+        {
+          "width": 360,
+          "scale": 1
+        }
+      ]
+    },
+    {
+      "file": "03-m-files.md",
+      "titles": 1,
+      "tables": 5,
+      "diagrams": 1,
+      "unrendered": 0,
+      "sizes": [
+        {
+          "width": 505,
+          "scale": 1
+        }
+      ]
+    },
+    {
+      "file": "05-arquitectura-y-aprendizajes.md",
+      "titles": 1,
+      "tables": 2,
+      "diagrams": 3,
+      "unrendered": 0,
+      "sizes": [
+        {
+          "width": 382,
+          "scale": 1
+        },
+        {
+          "width": 676,
+          "scale": 1
+        },
+        {
+          "width": 1068,
+          "scale": 0.74
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "file": "00-informe-principal.md",
+      "titles": 1,
+      "tables": 2,
+      "diagrams": 0,
+      "unrendered": 0
+    },
+    {
+      "file": "01-docuware.md",
+      "titles": 1,
+      "tables": 3,
+      "diagrams": 1,
+      "unrendered": 0
+    },
+    {
+      "file": "02-mayan-edms.md",
+      "titles": 1,
+      "tables": 7,
+      "diagrams": 4,
+      "unrendered": 0
+    },
+    {
+      "file": "03-m-files.md",
+      "titles": 1,
+      "tables": 5,
+      "diagrams": 1,
+      "unrendered": 0
+    },
+    {
+      "file": "04-rossum.md",
+      "titles": 1,
+      "tables": 6,
+      "diagrams": 1,
+      "unrendered": 0
+    },
+    {
+      "file": "05-arquitectura-y-aprendizajes.md",
+      "titles": 1,
+      "tables": 2,
+      "diagrams": 3,
+      "unrendered": 0
+    },
+    {
+      "file": "06-protocolo-de-pruebas.md",
+      "titles": 1,
+      "tables": 3,
+      "diagrams": 0,
+      "unrendered": 0
+    }
+  ]
+}
