@@ -1,27 +1,29 @@
-# Plan para un gestor documental independiente e integrable
+# Plan para una base reutilizable de gestión documental
 
-La recomendación es desarrollar **un núcleo documental reutilizable, dos formas de uso y una capa de personalización por compañía**. Esto responde a tu negocio de software a medida: poder vender solo gestión documental o incorporarla dentro de las aplicaciones que entregas, manteniendo ajustes particulares en ambos casos.
+Necesitas **una base de código de gestión documental que tú puedas incorporar y adaptar al construir el software de cada cliente**. En cada proyecto tú decides si entregas solamente gestión documental o si la integras con los demás módulos de una aplicación. El cliente recibe la solución que hayas preparado para él.
 
-Es una propuesta para llevar el [benchmark](2026-10-16-gestion-documental/00-informe-principal.md) a un producto propio. No se ha inspeccionado aquí una aplicación tuya que permita determinar qué existe ya, cuánto habría que cambiar ni cuánto tardaría. No hay implementación nueva en esta entrega.
+La aclaración del usuario sustituye el enfoque anterior de dos accesos al mismo sistema. Se reutilizan capacidades y código entre proyectos; no se exige que un cliente tenga ambas modalidades, comparta datos entre dos aplicaciones o dependa de un servicio documental central.
 
-## Las dos formas de uso
+Es una propuesta para llevar el [benchmark](2026-10-16-gestion-documental/00-informe-principal.md) a una base propia. El primer caso identificado es Bancavalor: se hizo una revisión inicial de su gestor existente, documentada en [el punto de partida](2026-10-17-bancavalor-punto-de-partida-documental.md). No se ha probado su funcionamiento real ni estimado la implementación. No hay código nuevo de aplicación en esta entrega.
 
-| Modalidad     | Qué recibe el cliente                                                                          | Qué se reutiliza                                                                         |
-| ------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Independiente | Un gestor documental con acceso, navegación, marca y configuración propios                     | Motor documental, permisos, historial, procesos y componentes de pantalla                |
-| Integrada     | Gestión documental dentro de su aplicación, por ejemplo en la ficha de un contrato o proveedor | El mismo motor y componentes, conectados mediante una API y una integración de identidad |
+## Cómo utilizas la base en tus proyectos
 
-La API es el contrato por el que las pantallas y otros programas piden operaciones al motor. La aplicación independiente también debe usar ese contrato. Una integración podrá reutilizar tus pantallas o construir pantallas específicas sobre la misma API.
+| Decisión tuya para el proyecto        | Qué construyes                                                                                   | Qué aporta la base                                                                       |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| Entregar solo gestión documental      | Una aplicación documental adaptada al cliente                                                    | Documentos, versiones, búsqueda, permisos, historial, procesos y componentes de pantalla |
+| Incorporarla a un software más amplio | Una aplicación con los módulos de negocio que el cliente necesita y gestión documental integrada | Las mismas capacidades, adaptadas a los usuarios, datos y navegación de esa aplicación   |
 
-**Estar dentro de la pantalla del cliente y ejecutarse en su infraestructura son decisiones diferentes.** Un módulo integrado puede conectarse a tu servicio. Si un cliente requiere una instalación dedicada, debe desplegarse una versión del mismo producto con su configuración, evitando una copia de código que evolucione por separado. La selección entre recursos compartidos y dedicados depende de aislamiento y operación; la distinción entre cliente lógico e instalación está explicada en [Microsoft Architecture Center](https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/considerations/tenancy-models). Esta referencia no implica elegir Azure.
+La recomendación técnica es mantener el núcleo como un módulo con versiones identificables. Cada aplicación incorpora una versión y sus ajustes particulares. Los puntos de adaptación conectan el módulo con la identidad, permisos, almacenamiento y entidades de esa aplicación. Las pantallas pueden reutilizar componentes de la base o incluir desarrollos específicos.
+
+La forma concreta de empaquetarlo depende de las tecnologías que ya uses. Puede tener contratos internos entre módulos y exponer una API cuando la aplicación la necesite; no tiene que empezar como un servicio remoto. Esa decisión requiere revisar tus proyectos y no se ha tomado aquí.
 
 ## Paso 1 Elegir el primer proceso que vas a vender
 
-Escoge un proceso concreto para el piloto: por ejemplo, recepción, revisión y aprobación de documentos asociados a un contrato. Es un ejemplo, no una necesidad confirmada de tus clientes. Describe quién participa, qué documentos usa, qué decisión toma y qué resultado debe obtener.
+El usuario eligió Bancavalor, banca de inversión, como primer caso. Se parte de su gestor existente y se trabaja por fases: primero [recepción y aprobaciones](2026-10-17-bancavalor-fase-1-recepcion-y-aprobaciones.md). La emisión queda aplazada y no se añade un proceso de compras. Las preguntas sobre emisión ya no bloquean el primer ajuste.
 
 Antes de elegir tecnología o fechas, inventaría lo que ya tienen tus aplicaciones: acceso de usuarios, documentos, permisos, integraciones y almacenamiento. Identifica qué se puede reutilizar y qué está acoplado a un cliente concreto.
 
-**Entrega:** una ficha del piloto con recorrido completo, tipos documentales, actores, reglas, excepciones e integraciones. Incluir dos contextos de uso: desde el gestor independiente y desde una aplicación anfitriona.
+**Entrega:** una ficha del piloto con recorrido completo, tipos documentales, actores, reglas, excepciones e integraciones. Para ese proyecto, elige una modalidad de entrega: aplicación documental o módulo de una solución más amplia.
 
 ## Paso 2 Delimitar el producto común y sus módulos
 
@@ -35,13 +37,13 @@ La [arquitectura del benchmark](2026-10-16-gestion-documental/05-arquitectura-y-
 
 ## Paso 3 Fijar cómo se conecta con cada aplicación
 
-Define operaciones comunes para cargar, consultar, versionar, buscar y relacionar documentos; iniciar un proceso; decidir una tarea; consultar el historial y obtener el archivo con autorización. Define también cómo informa resultados a la aplicación anfitriona y cómo se recupera de una respuesta perdida.
+Define operaciones comunes para cargar, consultar, versionar, buscar y relacionar documentos; iniciar un proceso; decidir una tarea; consultar el historial y obtener el archivo con autorización. Mantén estas reglas en el núcleo reutilizable y define puntos de adaptación concretos para cada aplicación.
 
-Para la integración, acuerda identidad del usuario, compañía y contexto de negocio. Por ejemplo, un documento puede relacionarse con un contrato del programa del cliente sin copiar toda su base de contratos. La referencia debe distinguir compañía, integración, tipo de objeto e identificador externo, y tener una política cuando el objeto cambia o desaparece.
+Para integrarlo, conecta los usuarios y permisos de la aplicación con las acciones documentales, y sus entidades con los documentos. Por ejemplo, un contrato del programa del cliente puede tener documentos asociados. Esa relación debe tener identidad estable y una política cuando el contrato cambia o desaparece. No hace falta duplicar el registro de contratos ni imponer un segundo inicio de sesión.
 
 El módulo debe comprobar permisos en el servidor para cada operación. Recibir un identificador de compañía o de contrato desde una pantalla no demuestra que el usuario tenga acceso. Este criterio coincide con la validación por petición y de recursos concretos de [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).
 
-**Entrega:** contrato de API, integración de identidad y una aplicación anfitriona mínima de prueba. No es necesario separar todo en microservicios: puede comenzar como un backend modular con responsabilidades claras.
+**Entrega:** contratos del módulo y adaptadores para identidad, permisos, archivos y relaciones de negocio. Añadir una API de red cuando exista un consumidor que la necesite. No es necesario separar todo en microservicios: puede comenzar dentro del backend de cada aplicación, con responsabilidades claras.
 
 ## Paso 4 Separar las personalizaciones
 
@@ -52,48 +54,50 @@ El módulo debe comprobar permisos en el servidor para cada operación. Recibir 
 | Desarrollo específico | Una pantalla propia, un cálculo particular o un conector al sistema de un cliente                        | Extensión separada con contrato, versión y pruebas propias    |
 | Mejora del núcleo     | Una capacidad común que sirve a varios clientes                                                          | Cambio del producto compartido, con pruebas de compatibilidad |
 
-Ejemplo: que una compañía use una aprobación y otra dos puede resolverse con configuración. Enviar el resultado a un sistema particular puede requerir un conector. Una pantalla especial puede consumir la misma API sin redefinir los permisos ni el historial.
+Ejemplo: que una compañía use una aprobación y otra dos puede resolverse con configuración. Enviar el resultado a un sistema particular puede requerir un conector. Una pantalla especial puede utilizar las operaciones del módulo sin redefinir los permisos ni el historial.
 
-Cada petición de cliente debe clasificarse antes de presupuestarla. Mantén una versión identificable del núcleo y registra qué configuración y extensiones usa cada compañía. No conviertas la configuración en ejecución libre de código ni permitas que una personalización anule el aislamiento de datos o borre el significado de decisiones anteriores.
+Cada petición de cliente debe clasificarse antes de presupuestarla. Mantén una versión identificable del núcleo y registra qué configuración y extensiones usa cada proyecto. Prueba y decide las actualizaciones por aplicación; una mejora de la base no tiene que cambiar automáticamente todos los proyectos. No conviertas la configuración en ejecución libre de código ni permitas que una personalización anule los permisos o borre el significado de decisiones anteriores.
 
 **Entrega:** catálogo inicial de ajustes permitidos y ficha de cada extensión, con responsable de mantenimiento, dependencias y pruebas de aceptación.
 
-## Paso 5 Definir el aislamiento y la operación
+## Paso 5 Adaptar datos y operación a cada aplicación
 
-Define el ámbito del cliente: una compañía puede tener sociedades, sedes o departamentos y eso no debe confundirse automáticamente con instalaciones independientes. Decide qué comparten y qué deben mantener separado en el piloto.
+Reutilizar código no exige compartir documentos, usuarios ni base de datos entre clientes. Cada proyecto debe definir dónde viven sus documentos y cómo se aplican sus permisos. Si una aplicación atiende a varias compañías, el aislamiento entre ellas será un requisito específico de esa aplicación.
 
-Aplicando tu estándar, la base sería Supabase, con esquema y usuario de base de datos propios de la aplicación, pertenencia a la app, control de acceso desde el inicio y Storage privado. Si varias compañías comparten la aplicación, el control debe exigir además pertenencia y permiso en la compañía correspondiente: pertenecer a la app por sí solo no basta. La ubicación concreta en un proyecto existente requiere tu elección y confirmación antes de crear infraestructura.
+Aplicando tu estándar, cada aplicación en Supabase debe respetar su esquema y usuario propios, pertenencia a la app, control de acceso desde el inicio y Storage privado. El módulo documental debe integrarse en ese espacio y mantener separados sus modelos y migraciones de las reglas específicas del cliente. Si varias compañías comparten una aplicación, el control debe exigir además pertenencia y permiso en la compañía correspondiente. La ubicación concreta requiere tu elección y confirmación antes de crear infraestructura.
 
-Prueba el aislamiento en archivos, búsquedas, versiones, historial y tareas en segundo plano. Incluye respaldo y restauración, exportación de datos de un cliente y medición de su consumo. Si se ofrece infraestructura dedicada, define quién la opera, cómo se actualiza y qué diferencias de servicio se admiten, conservando el mismo producto.
+Prueba los permisos en archivos, búsquedas, versiones, historial y tareas en segundo plano. Incluye respaldo y restauración, exportación de documentos y actualización de la base reutilizable sin perder ajustes particulares. Define quién opera cada aplicación y cómo se mantienen sus extensiones.
 
-**Entrega:** una matriz de acceso y un procedimiento de alta, actualización, recuperación y salida de un cliente. No hay infraestructura creada por este plan.
+**Entrega:** matriz de acceso, persistencia adaptada al proyecto y procedimientos de actualización, recuperación y exportación. No hay infraestructura creada por este plan.
 
-## Paso 6 Construir un recorrido completo en ambas modalidades
+## Paso 6 Probar la reutilización en dos proyectos de ejemplo
 
-El primer resultado funcional debería permitir:
+Primero prueba el recorrido completo en la modalidad elegida para el piloto:
 
 1. Entrar como usuario autorizado de una compañía.
 2. Subir un documento y asociarlo a un expediente.
 3. Revisarlo y tomar una decisión sobre una versión identificada.
 4. Consultar quién decidió, qué regla se aplicó y qué versión revisó.
-5. Repetir el recorrido desde la aplicación anfitriona con la misma política.
+5. Verificar que los ajustes del cliente se cumplen y que el acceso no autorizado se rechaza.
 
-Después, configura dos compañías de prueba con reglas diferentes. Deben usar la misma versión del núcleo. Cambiar un requisito en una no debe modificar la otra, y cambiar de presentación no debe crear otro documento ni perder el historial.
+Después comprueba que la base se puede reutilizar en otro proyecto de ejemplo. Uno puede ser una aplicación exclusivamente documental y el otro una aplicación de negocio que incorpora el módulo. Usa datos ficticios independientes: son dos soluciones diferentes, no dos entradas al mismo expediente de un cliente.
+
+Ambos proyectos deben utilizar una versión identificable de la base y tener sus propios ajustes. Cambiar una regla particular del segundo no debe modificar el primero. Una actualización de la base debe probarse en cada uno antes de adoptarla.
 
 La integración de identidad debe incluir expiración de sesión y revocación. La recepción de un resultado repetido no debe producir una segunda aprobación o una segunda operación externa. Los casos del [protocolo del benchmark](2026-10-16-gestion-documental/06-protocolo-de-pruebas.md) sirven como base, especialmente aislamiento, concurrencia, cambios de versión y conciliación.
 
-**Criterio para avanzar:** demostrar ambos recorridos, impedir accesos cruzados y actualizar el núcleo manteniendo las dos configuraciones. Estas pruebas están propuestas; no se han ejecutado en un producto tuyo.
+**Criterio para avanzar:** demostrar que se puede incorporar la base en ambos tipos de proyecto sin reescribir su lógica común y manteniendo los ajustes particulares. Estas pruebas están propuestas; no se han ejecutado en un producto tuyo.
 
 ## Paso 7 Convertirlo en una oferta repetible
 
-Puedes organizar la oferta en producto base, puesta en marcha, módulos opcionales, desarrollos específicos y operación o soporte. Las modalidades independiente e integrada necesitan describir claramente qué incluye la entrega; integrar identidad y datos del cliente es trabajo que debe quedar acotado.
+Puedes organizar la oferta en capacidades de la base, adaptación al proyecto, módulos opcionales, desarrollos específicos y operación o soporte. Tú eliges la composición de cada solución. El cliente recibe el software acordado; no necesita elegir entre accesos o conocer cómo reutilizas tu base.
 
 Para cada venta, deja por escrito el alcance, los ajustes incluidos, las integraciones, los criterios de aceptación y quién mantiene cada extensión. Antes de fijar precios o plazos, mide el piloto y sus costos reales; aquí no se han calculado ni medido.
 
-El aprendizaje comercial del piloto debe responder si el siguiente cliente se incorpora principalmente configurando el producto o si exige reconstruirlo. Si aparece una necesidad común, evalúala como mejora del núcleo; si es particular, mantenla en la extensión correspondiente.
+El aprendizaje del piloto debe responder qué partes puedes reutilizar al programar para el siguiente cliente y qué adaptación requiere su proyecto. Si aparece una necesidad común, evalúala como mejora de la base; si es particular, mantenla en la extensión correspondiente.
 
 ## El siguiente entregable concreto
 
-Preparar una especificación de la primera versión con el proceso piloto, núcleo compartido, dos formas de uso, personalizaciones admitidas y criterios de aceptación. El primer hito de implementación debe demostrar el mismo expediente funcionando en ambas modalidades y con dos configuraciones de compañía.
+Preparar la especificación de la base reutilizable: funciones incluidas, componentes de pantalla, puntos de adaptación, extensiones y forma de incorporarla a tus proyectos. Elegir después un primer proyecto y su modalidad de entrega. La prueba de reutilización se hará con proyectos separados, sin exigir dos accesos para un cliente.
 
 La implementación corresponde al repositorio del producto documental, por identificar; REA es el espacio de esta investigación. Este plan y sus enlaces fueron revisados como documentación. El visor del Taller y la exportación Word/PDF no se han probado para este archivo.
