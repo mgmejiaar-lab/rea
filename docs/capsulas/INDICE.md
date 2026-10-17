@@ -6,16 +6,15 @@
 
 ## Abiertas
 
-| Cápsula                                                          | Estado                   | Pendiente                                                                                                                                    |
-| ---------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Tratar de traer wispr](55f733dc-7dbe-41b7-b96c-0f413414d1f3.md) | Abierta                  | Evaluación con la voz y micrófono reales del usuario, ruido y sesiones largas. La prueba funcional usa voz sintética; no se ha comparado pre |
-| [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md)               | Abierta ⚠️ sin completar | —                                                                                                                                            |
+| Cápsula                                            | Estado                   | Pendiente |
+| -------------------------------------------------- | ------------------------ | --------- |
+| [Lovable](6b2dcfe4-10a3-45ab-b408-5be58c20c97b.md) | Abierta ⚠️ sin completar | —         |
 
 ## Cerradas o continuadas
 
-| Cápsula   | Estado | Pendiente |
-| --------- | ------ | --------- |
-| (ninguna) |        |           |
+| Cápsula                                                          | Estado  | Pendiente                                                                                                                                    |
+| ---------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Tratar de traer wispr](55f733dc-7dbe-41b7-b96c-0f413414d1f3.md) | Cerrada | Evaluación con la voz y micrófono reales del usuario, ruido y sesiones largas. La prueba funcional usa voz sintética; no se ha comparado pre |
 
 ## Sin conversación viva (revisar a mano)
 
