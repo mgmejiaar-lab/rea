@@ -6,10 +6,11 @@
 
 ## Abiertas
 
-| Cápsula                                                           | Estado  | Pendiente                                                                                                                                    |
-| ----------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) | Abierta | La investigación pública/de código y sus documentos están terminados. Una validación posterior requiere sesiones o instalaciones autorizadas |
-| [Lovable](75a4e713-9c73-459f-8eb8-393e112b028b.md)                | Abierta | Ninguna implementación autorizada. Si se decide profundizar: benchmark de generación equivalente con autorización expresa de consumo; despué |
+| Cápsula                                                           | Estado                   | Pendiente                                                                                                                                    |
+| ----------------------------------------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ing inv gst documental](5d9a54d8-0cfc-4924-aefa-56353835a2fc.md) | Abierta                  | La investigación pública/de código y sus documentos están terminados. Una validación posterior requiere sesiones o instalaciones autorizadas |
+| [Testfit](638323cf-29ba-4e7f-9991-7d01ab6be1d9.md)                | Abierta ⚠️ sin completar | —                                                                                                                                            |
+| [Lovable](75a4e713-9c73-459f-8eb8-393e112b028b.md)                | Abierta                  | Ninguna implementación autorizada. Si se decide profundizar: benchmark de generación equivalente con autorización expresa de consumo; despué |
 
 ## Cerradas o continuadas
 
@@ -33,4 +34,4 @@ Cápsulas cuyo archivo sigue exactamente como la plantilla vacía (Avances/Pendi
 paso sin tocar) aunque ya tuvieron trabajo: no se pudieron completar solas de forma fiable.
 Revisar a mano con `docs/capsulas/<id>.md` y la conversación real antes de confiar en ellas.
 
-(ninguna)
+- [Testfit](638323cf-29ba-4e7f-9991-7d01ab6be1d9.md) (Abierta)

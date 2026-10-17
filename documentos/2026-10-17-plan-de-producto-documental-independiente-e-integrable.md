@@ -13,9 +13,57 @@ Es una propuesta para llevar el [benchmark](2026-10-16-gestion-documental/00-inf
 | Entregar solo gestión documental      | Una aplicación documental adaptada al cliente                                                    | Documentos, versiones, búsqueda, permisos, historial, procesos y componentes de pantalla |
 | Incorporarla a un software más amplio | Una aplicación con los módulos de negocio que el cliente necesita y gestión documental integrada | Las mismas capacidades, adaptadas a los usuarios, datos y navegación de esa aplicación   |
 
-La recomendación técnica es mantener el núcleo como un módulo con versiones identificables. Cada aplicación incorpora una versión y sus ajustes particulares. Los puntos de adaptación conectan el módulo con la identidad, permisos, almacenamiento y entidades de esa aplicación. Las pantallas pueden reutilizar componentes de la base o incluir desarrollos específicos.
+La propuesta es mantener capacidades reutilizables con versiones identificables, para que puedas incorporar el conjunto documental o solo las piezas que necesites. Cada aplicación registra las versiones elegidas y sus ajustes particulares. Los puntos de adaptación conectan esas piezas con la identidad, permisos, almacenamiento y entidades de la aplicación. Las pantallas pueden reutilizar componentes de la base o incluir desarrollos específicos.
 
 La forma concreta de empaquetarlo depende de las tecnologías que ya uses. Puede tener contratos internos entre módulos y exponer una API cuando la aplicación la necesite; no tiene que empezar como un servicio remoto. Esa decisión requiere revisar tus proyectos y no se ha tomado aquí.
+
+## Componer la solución por módulos y submódulos
+
+El requisito aclarado por el usuario es poder explorar una herramienta en Conectia360, ver sus módulos y submódulos, y escoger una funcionalidad concreta para incorporarla a un proyecto. Es el modelo de piezas de Tetris. La organización del catálogo facilita encontrarlas; la separación del código y sus contratos permite reutilizarlas. Un enlace a un archivo o repositorio, por sí solo, no demuestra que una pieza funcione por separado.
+
+Este es un mapa **propuesto**, no el inventario de módulos independientes ya comprobados en Bancavalor:
+
+| Herramienta        | Módulo                | Submódulos o funcionalidades propuestas                                               | Resultado principal                                             |
+| ------------------ | --------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Gestión documental | Ingreso               | Carga individual, carga masiva, conector de recepción DIAN                            | Originales identificados y resultado de recepción por archivo   |
+| Gestión documental | Lectura de facturas   | Interpretación de XML, extracción de texto PDF, OCR de imágenes, extracción de campos | Datos extraídos asociados a su documento y evidencia disponible |
+| Gestión documental | Revisión y validación | Revisión humana, validación de campos y totales, detección de duplicados              | Datos revisados e incidencias pendientes                        |
+| Gestión documental | Aprobaciones          | Asignación, decisiones, devolución, reglas y excepciones del cliente                  | Decisiones trazables sobre una versión identificada             |
+| Gestión documental | Archivo y consulta    | Originales, versiones, metadatos, búsqueda y acceso autorizado                        | Documentos recuperables con control de acceso                   |
+
+El historial acompaña las operaciones que lo necesitan. La autenticación, la autorización y el almacenamiento deben conectarse con los servicios del proyecto mediante puntos de adaptación definidos. Reutilizar solo una pieza no autoriza a omitir esos controles cuando procesa archivos o datos privados.
+
+La jerarquía sirve para navegar. Las dependencias deben mostrarse aparte: una carga masiva puede utilizar almacenamiento y un lector, mientras que el mismo lector puede recibir archivos desde otra aplicación. No es necesario crear un repositorio, un servicio ni una pantalla por cada funcionalidad; la separación física se decide después de comprobar qué se reutiliza y cómo.
+
+### Ejemplo: escoger únicamente la lectura de facturas
+
+El contrato propuesto para el lector es:
+
+- **Recibe:** contenido del archivo o una referencia autorizada, formato e instrucciones de extracción permitidas por el proyecto.
+- **Devuelve:** campos extraídos, referencia al original, evidencia de origen cuando esté disponible, advertencias, datos desconocidos y errores del documento. No inventa valores ni porcentajes de confianza.
+- **Necesita:** los lectores y proveedores habilitados para esos formatos. Un XML puede seguir una ruta distinta a una imagen; usar agentes o modelos no es un requisito para todas las entradas.
+- **Se adapta:** mediante configuración y adaptadores de archivo y proveedor, sin depender de las pantallas, tablas o reglas de aprobación de Bancavalor.
+- **Límite:** extraer campos no acredita validez tributaria, aprobación ni pago. El sistema consumidor decide cómo revisar y utilizar el resultado.
+
+La calidad debe acreditarse con documentos de prueba, resultados por campo, fallos conocidos y versión evaluada. Precisión, tiempo y costo se registran cuando se midan; aquí no están medidos. No etiquetar una pieza como «la mejor» o «lista para reutilizar» solo por el proveedor o modelo que utiliza.
+
+### Dónde llega una carga masiva
+
+En la composición propuesta, la recepción conserva los originales y registra el resultado de cada archivo. El procesamiento del lote llama al lector y entrega sus resultados a la bandeja de revisión o al sistema del cliente que se haya conectado. Se distingue archivo recibido, lectura completada y factura revisada; son resultados diferentes, no estados actuales afirmados del producto.
+
+El procesamiento debe poder reintentar archivos fallidos sin duplicar los ya procesados, y un fallo individual debe quedar identificado. El conector DIAN es una fuente de entrada; sus documentos pasan por las etapas que correspondan. Esta propuesta no activa la conexión ni sustituye la tarea DIAN existente.
+
+Ejemplos de composiciones que tú podrías elegir:
+
+- **Cliente con sistema propio:** lector de facturas → resultados para su sistema actual.
+- **Cliente con recepción masiva:** carga por lotes → lectura → revisión.
+- **Bancavalor, fase 1:** recepción → lectura o captura manual → revisión y clasificación → aprobaciones → consulta e historial.
+
+### Qué debe registrar Conectia360 sobre cada pieza
+
+Como requisito para su catálogo, propongo una ficha con propósito, ubicación en el repositorio, versión, entradas, salidas, dependencias obligatorias y opcionales, puntos de adaptación, componente de pantalla si existe y ejemplo de integración. Debe distinguir lo localizado en código de lo probado por separado y de lo integrado y probado en un proyecto, enlazando la evidencia correspondiente.
+
+Una selección debe hacer visibles sus dependencias y los ajustes necesarios. «Traer un módulo» significa incorporar una versión y conectar esos puntos de adaptación; no copiar archivos sin conocer sus dependencias. También pueden guardarse composiciones habituales para repetirlas en otros proyectos. El catálogo de Conectia360 no está implementado ni verificado en esta tarea; su construcción corresponde a una tarea en ese proyecto.
 
 ## Paso 1 Elegir el primer proceso que vas a vender
 
@@ -27,9 +75,9 @@ Antes de elegir tecnología o fechas, inventaría lo que ya tienen tus aplicacio
 
 ## Paso 2 Delimitar el producto común y sus módulos
 
-Como base inicial propongo documentos y originales, versiones, metadatos, búsqueda por metadatos, permisos, historial y relación con expedientes del negocio. Añadir un proceso de revisión y aprobación acotado para demostrar el ciclo completo.
+Para el gestor completo propongo documentos y originales, versiones, metadatos, búsqueda por metadatos, permisos, historial y relación con expedientes del negocio. Estas capacidades no deben convertirse en una dependencia obligatoria de quien solo necesita leer un archivo. En Bancavalor, comprobar además un proceso de revisión y aprobación acotado para demostrar el ciclo completo.
 
-La extracción OCR, interpretación de facturas, cotejo con pedidos, firma y conectores especializados pueden ser módulos opcionales. Su prioridad debe salir del piloto. Un gestor de contratos no tiene por qué ejecutar el procesamiento de facturas para poder funcionar.
+La extracción OCR, interpretación de facturas, firma y conectores especializados pueden ser módulos opcionales. Su prioridad debe salir del piloto. Un gestor de contratos no tiene por qué ejecutar el procesamiento de facturas para poder funcionar.
 
 La [arquitectura del benchmark](2026-10-16-gestion-documental/05-arquitectura-y-aprendizajes.md) desarrolla las separaciones importantes: documento y revisión; extracción y validación; tarea y decisión; envío externo y confirmación.
 
@@ -98,6 +146,8 @@ El aprendizaje del piloto debe responder qué partes puedes reutilizar al progra
 
 ## El siguiente entregable concreto
 
-Preparar la especificación de la base reutilizable: funciones incluidas, componentes de pantalla, puntos de adaptación, extensiones y forma de incorporarla a tus proyectos. Elegir después un primer proyecto y su modalidad de entrega. La prueba de reutilización se hará con proyectos separados, sin exigir dos accesos para un cliente.
+Preparar el inventario de piezas del gestor existente de Bancavalor y definir primero el contrato de lectura de facturas: archivos que admite realmente, datos que devuelve, dependencias actuales y adaptadores necesarios. Comprobar una extracción aislada con documentos de prueba antes de declararla reutilizable. El módulo de carga masiva se conecta con ese contrato cuando corresponda, sin mezclar recepción, extracción y aprobación.
 
-La implementación corresponde al repositorio del producto documental, por identificar; REA es el espacio de esta investigación. Este plan y sus enlaces fueron revisados como documentación. El visor del Taller y la exportación Word/PDF no se han probado para este archivo.
+Este trabajo se encaja en la fase 1 ya elegida: primero comprobar el recorrido actual de recepción y aprobaciones y separar responsabilidades progresivamente, sin exigir una reescritura de todo el gestor. La prueba posterior de reutilización se hará con proyectos separados, sin exigir dos accesos para un cliente.
+
+La implementación del piloto corresponde a `conectia360/vaultfolio-forge`, en una tarea del proyecto Bancavalor; REA es el espacio de esta investigación. La ubicación futura de los paquetes compartidos queda por decidir. Este plan y sus enlaces fueron revisados como documentación. No se han ejecutado las composiciones propuestas ni probado el visor del Taller o la exportación Word/PDF para este archivo.
